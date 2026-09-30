@@ -2,32 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Dream Furniture Handicraft | Premium Sofas</title>
 
 <meta name="description"
-content="Dream Furniture Handicraft — Premium sofas, custom furniture and handcrafted comfort.">
+content="Dream Furniture Handicraft - Premium sofas, custom furniture and elegant sofa designs.">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
 
 :root{
-  --black:#080808;
-  --black2:#10100e;
-  --black3:#171511;
+  --bg:#070707;
+  --card:#11100e;
+  --card2:#16130e;
   --gold:#d5a642;
-  --gold2:#f2d17a;
-  --white:#f7f1e6;
-  --muted:#aaa398;
-  --line:rgba(213,166,66,.22);
-  --max:1250px;
+  --gold2:#f3d77d;
+  --white:#f7f4ed;
+  --muted:#9a968d;
+  --border:rgba(213,166,66,.20);
+  --max:1280px;
 }
 
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
 }
 
 html{
@@ -35,91 +36,121 @@ html{
 }
 
 body{
-  background:var(--black);
+  background:var(--bg);
   color:var(--white);
-  font-family:"DM Sans",Arial,sans-serif;
+  font-family:Inter,Arial,sans-serif;
   overflow-x:hidden;
 }
 
-/* =========================
-   BACKGROUND ANIMATION
-========================= */
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.035;
-  background-image:
-  radial-gradient(#fff .7px,transparent .7px);
-  background-size:6px 6px;
-  z-index:100;
+body::-webkit-scrollbar{
+  width:8px;
 }
 
-.bg-orb{
-  position:fixed;
-  border-radius:50%;
-  filter:blur(100px);
-  opacity:.12;
-  pointer-events:none;
-  z-index:-1;
-  animation:orbFloat 12s ease-in-out infinite;
+body::-webkit-scrollbar-track{
+  background:#070707;
 }
 
-.orb1{
-  width:400px;
-  height:400px;
-  background:#b27a19;
-  left:-150px;
-  top:15%;
-}
-
-.orb2{
-  width:350px;
-  height:350px;
-  background:#76501b;
-  right:-130px;
-  top:50%;
-  animation-delay:-4s;
-}
-
-.orb3{
-  width:300px;
-  height:300px;
-  background:#d7a73d;
-  left:40%;
-  bottom:-150px;
-  animation-delay:-7s;
-}
-
-@keyframes orbFloat{
-  50%{
-    transform:translate(35px,-30px) scale(1.08);
-  }
+body::-webkit-scrollbar-thumb{
+  background:#6d511f;
+  border-radius:20px;
 }
 
 /* =========================
-   OFFER BAR
+   GLOBAL
 ========================= */
 
-.offer-bar{
-  height:35px;
-  background:linear-gradient(90deg,#b88729,#e4bd5c,#b88729);
+.container{
+  width:min(var(--max),calc(100% - 40px));
+  margin:auto;
+}
+
+a{
+  color:inherit;
+}
+
+.gold{
+  color:var(--gold2);
+}
+
+.eyebrow{
+  color:var(--gold2);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:14px 22px;
+  border:1px solid var(--border);
+  text-decoration:none;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:.3s;
+  cursor:pointer;
+}
+
+.btn-gold{
   color:#080808;
+  background:linear-gradient(
+    110deg,
+    #b8892e,
+    #f3d477,
+    #c29432
+  );
+  border:0;
+  background-size:200% 100%;
+}
+
+.btn-gold:hover{
+  background-position:100% 0;
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px rgba(213,166,66,.18);
+}
+
+.btn-outline{
+  color:white;
+}
+
+.btn-outline:hover{
+  border-color:var(--gold);
+  color:var(--gold2);
+}
+
+section{
+  position:relative;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+  height:34px;
+  background:linear-gradient(
+    90deg,
+    #a87823,
+    #f1d174,
+    #a87823
+  );
+  color:#090909;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:25px;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.14em;
-  position:relative;
-  z-index:50;
+  gap:20px;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
 }
 
-.offer-bar a{
-  color:#080808;
+.topbar a{
   text-decoration:underline;
 }
 
@@ -128,66 +159,78 @@ body::before{
 ========================= */
 
 header{
-  height:78px;
+  height:76px;
   position:sticky;
   top:0;
-  z-index:40;
+  z-index:1000;
 
+  background:rgba(7,7,7,.90);
+  backdrop-filter:blur(18px);
+
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  height:100%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-
-  padding:0 max(20px,calc((100vw - var(--max))/2));
-
-  background:rgba(8,8,8,.82);
-  backdrop-filter:blur(18px);
-
-  border-bottom:1px solid var(--line);
 }
 
-.logo{
+.brand{
   display:flex;
   align-items:center;
-  gap:10px;
-  color:white;
+  gap:12px;
   text-decoration:none;
 }
 
-.logo img{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  object-fit:cover;
-  border:1px solid rgba(213,166,66,.7);
+.brand-mark{
+  width:43px;
+  height:43px;
+  border:1px solid var(--gold);
+  display:grid;
+  place-items:center;
+  color:var(--gold2);
+  font-family:Georgia,serif;
+  font-size:19px;
 }
 
-.logo b{
+.brand-name{
+  line-height:1.1;
+}
+
+.brand-name strong{
   display:block;
   font-family:"Playfair Display",serif;
-  font-size:15px;
+  font-size:16px;
 }
 
-.logo small{
+.brand-name span{
   display:block;
   color:var(--gold2);
   font-size:8px;
-  letter-spacing:.25em;
-  text-transform:uppercase;
+  letter-spacing:.27em;
+  margin-top:4px;
 }
 
-nav{
+.nav-links{
   display:flex;
-  gap:25px;
+  align-items:center;
+  gap:28px;
 }
 
-nav a{
-  color:#bbb5aa;
+.nav-links a{
+  color:#aaa69d;
   text-decoration:none;
-  font-size:12px;
+  font-size:11px;
   position:relative;
 }
 
-nav a::after{
+.nav-links a:hover{
+  color:white;
+}
+
+.nav-links a::after{
   content:"";
   position:absolute;
   left:0;
@@ -198,70 +241,28 @@ nav a::after{
   transition:.3s;
 }
 
-nav a:hover{
-  color:white;
-}
-
-nav a:hover::after{
+.nav-links a:hover::after{
   width:100%;
 }
 
-.header-right{
+.nav-actions{
   display:flex;
   gap:8px;
   align-items:center;
 }
 
-.search-btn,
-.menu-btn{
-  width:39px;
-  height:39px;
-  border-radius:50%;
-  border:1px solid var(--line);
+.icon-btn{
+  width:38px;
+  height:38px;
+  border:1px solid var(--border);
   background:#111;
   color:white;
+  border-radius:50%;
   cursor:pointer;
 }
 
-.menu-btn{
+.menu{
   display:none;
-}
-
-.gold-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-
-  padding:14px 21px;
-
-  background:linear-gradient(
-    110deg,
-    var(--gold),
-    #f4d477,
-    var(--gold)
-  );
-
-  background-size:200% 100%;
-
-  color:#090909;
-  text-decoration:none;
-
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-
-  border:0;
-  cursor:pointer;
-
-  transition:.35s;
-}
-
-.gold-btn:hover{
-  background-position:100% 0;
-  transform:translateY(-3px);
-  box-shadow:0 15px 40px rgba(213,166,66,.2);
 }
 
 /* =========================
@@ -269,111 +270,84 @@ nav a:hover::after{
 ========================= */
 
 .hero{
-  height:min(830px,calc(100vh - 113px));
-  min-height:650px;
+  min-height:calc(100vh - 110px);
+  height:760px;
   position:relative;
   overflow:hidden;
 }
 
-.hero-slides{
+.hero-images{
   position:absolute;
   inset:0;
 }
 
-.hero-slide{
+.hero-image{
   position:absolute;
   inset:0;
-
   opacity:0;
   transform:scale(1.08);
-
   transition:
-    opacity .9s ease,
-    transform 4s ease;
+    opacity 1s ease,
+    transform 5s ease;
 }
 
-.hero-slide.active{
+.hero-image.active{
   opacity:1;
   transform:scale(1);
 }
 
-.hero-slide img{
+.hero-image img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.hero-overlay{
+.hero-image::after{
+  content:"";
   position:absolute;
   inset:0;
 
   background:
-  linear-gradient(
-    90deg,
-    rgba(0,0,0,.86),
-    rgba(0,0,0,.45) 42%,
-    rgba(0,0,0,.08)
-  ),
-  linear-gradient(
-    0deg,
-    rgba(0,0,0,.72),
-    transparent 55%
-  );
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.90),
+      rgba(0,0,0,.56) 45%,
+      rgba(0,0,0,.12)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,.72),
+      transparent 55%
+    );
 }
 
 .hero-content{
   position:absolute;
   z-index:5;
-
   left:max(20px,calc((100vw - var(--max))/2));
   top:50%;
-
   transform:translateY(-45%);
-
-  max-width:620px;
-
-  animation:heroEnter 1.2s ease;
+  max-width:650px;
 }
 
-@keyframes heroEnter{
-  from{
-    opacity:0;
-    transform:translateY(-35%) translateX(-30px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(-45%) translateX(0);
-  }
-}
-
-.eyebrow{
-  color:var(--gold2);
-  font-size:10px;
-  letter-spacing:.3em;
-  font-weight:700;
-  margin-bottom:16px;
-}
-
-.hero h1{
+.hero-content h1{
   font-family:"Playfair Display",serif;
+  font-size:clamp(50px,7vw,92px);
   font-weight:500;
-  font-size:clamp(48px,6vw,86px);
-  line-height:.95;
-  margin-bottom:22px;
+  line-height:.94;
+  margin:17px 0 24px;
 }
 
-.hero h1 em,
-h2 em{
+.hero-content h1 em{
   color:var(--gold2);
   font-style:italic;
 }
 
-.hero-text{
-  color:#d0cbc2;
+.hero-content p.description{
+  color:#c4c0b7;
+  max-width:510px;
   line-height:1.8;
   font-size:14px;
-  max-width:500px;
 }
 
 .hero-buttons{
@@ -382,57 +356,43 @@ h2 em{
   margin-top:30px;
 }
 
-.outline-btn{
-  padding:13px 20px;
-  border:1px solid rgba(255,255,255,.25);
-  color:white;
-  text-decoration:none;
-  font-size:11px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  transition:.3s;
-}
-
-.outline-btn:hover{
-  border-color:var(--gold);
-  color:var(--gold2);
-}
-
-.hero-stats{
+.hero-info{
   display:flex;
   gap:35px;
   margin-top:48px;
 }
 
-.hero-stat{
+.hero-info div{
   border-left:1px solid var(--gold);
   padding-left:13px;
 }
 
-.hero-stat b{
+.hero-info strong{
   display:block;
   color:var(--gold2);
   font-family:"Playfair Display",serif;
-  font-size:17px;
+  font-size:19px;
 }
 
-.hero-stat span{
-  color:#aaa;
+.hero-info span{
+  display:block;
+  color:#888;
   font-size:9px;
+  margin-top:4px;
 }
 
 .hero-dots{
   position:absolute;
   right:30px;
-  bottom:30px;
+  bottom:32px;
+  z-index:10;
   display:flex;
   gap:8px;
-  z-index:8;
 }
 
 .hero-dots button{
-  width:7px;
-  height:7px;
+  width:8px;
+  height:8px;
   border-radius:50%;
   border:1px solid var(--gold2);
   background:transparent;
@@ -441,24 +401,6 @@ h2 em{
 
 .hero-dots button.active{
   background:var(--gold2);
-  transform:scale(1.4);
-}
-
-.progress{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:2px;
-  background:rgba(255,255,255,.15);
-  z-index:8;
-}
-
-.progress span{
-  display:block;
-  height:100%;
-  width:0;
-  background:var(--gold2);
 }
 
 /* =========================
@@ -466,31 +408,29 @@ h2 em{
 ========================= */
 
 .trust{
-  max-width:var(--max);
-  margin:auto;
+  border-bottom:1px solid var(--border);
+}
 
+.trust-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-
-  border-left:1px solid var(--line);
-  border-right:1px solid var(--line);
 }
 
 .trust-item{
-  padding:25px;
-  border-right:1px solid var(--line);
+  padding:26px 22px;
+  border-right:1px solid var(--border);
 }
 
 .trust-item:last-child{
   border-right:0;
 }
 
-.trust-number{
+.trust-item small{
   color:var(--gold);
-  font-size:10px;
+  font-size:9px;
 }
 
-.trust-item b{
+.trust-item strong{
   display:block;
   font-size:13px;
   margin:7px 0;
@@ -502,350 +442,347 @@ h2 em{
 }
 
 /* =========================
-   SECTIONS
+   SECTION
 ========================= */
 
 .section{
-  max-width:var(--max);
-  margin:auto;
-  padding:110px 20px;
+  padding:110px 0;
 }
 
-.section-head{
+.section-heading{
   display:flex;
-  justify-content:space-between;
   align-items:end;
-  gap:40px;
+  justify-content:space-between;
+  gap:30px;
   margin-bottom:45px;
 }
 
-.section-head h2{
+.section-heading h2{
   font-family:"Playfair Display",serif;
   font-weight:500;
-  font-size:clamp(40px,5vw,65px);
-  line-height:1;
+  font-size:clamp(42px,5vw,67px);
+  line-height:.98;
+  margin-top:12px;
 }
 
-.section-head>p{
-  color:#8e8980;
-  max-width:400px;
-  line-height:1.8;
+.section-heading h2 em{
+  color:var(--gold2);
+  font-style:italic;
+}
+
+.section-heading p{
+  color:#858179;
+  max-width:430px;
   font-size:13px;
+  line-height:1.8;
 }
 
 /* =========================
-   FEATURE COLLECTION
+   COLLECTION CARDS
 ========================= */
 
-.feature-grid{
+.collections{
   display:grid;
   grid-template-columns:1.3fr .85fr .85fr;
-  grid-auto-rows:250px;
+  grid-template-rows:250px 250px;
   gap:14px;
 }
 
-.feature{
+.collection-card{
   position:relative;
   overflow:hidden;
-  border:1px solid var(--line);
+  border:1px solid var(--border);
   cursor:pointer;
 }
 
-.feature:first-child{
+.collection-card:first-child{
   grid-row:span 2;
 }
 
-.feature img{
+.collection-card img{
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:transform .9s;
+  transition:.8s;
 }
 
-.feature:hover img{
+.collection-card:hover img{
   transform:scale(1.08);
 }
 
-.feature::after{
+.collection-card::after{
   content:"";
   position:absolute;
   inset:0;
   background:linear-gradient(
     0deg,
-    rgba(0,0,0,.8),
+    rgba(0,0,0,.85),
     transparent 60%
   );
 }
 
-.feature-content{
+.collection-text{
   position:absolute;
   z-index:2;
   left:20px;
-  right:20px;
   bottom:20px;
 }
 
-.feature-content span{
+.collection-text small{
   color:var(--gold2);
   font-size:9px;
-  letter-spacing:.2em;
+  letter-spacing:.18em;
 }
 
-.feature-content h3{
+.collection-text h3{
   font-family:"Playfair Display",serif;
   font-size:25px;
-  margin:5px 0;
+  font-weight:500;
+  margin-top:5px;
 }
 
-.feature-content p{
+.collection-text p{
   color:#aaa;
   font-size:10px;
+  margin-top:4px;
 }
 
 /* =========================
-   SHOWCASE
+   FEATURE
 ========================= */
 
-.showcase{
-  max-width:var(--max);
-  margin:auto;
-  padding:0 20px 110px;
+.feature{
+  padding-bottom:110px;
+}
 
+.feature-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:70px;
+  gap:60px;
   align-items:center;
 }
 
-.showcase-image{
-  height:600px;
+.feature-photo{
+  height:620px;
   overflow:hidden;
-  border:1px solid var(--line);
+  border:1px solid var(--border);
 }
 
-.showcase-image img{
+.feature-photo img{
   width:100%;
   height:100%;
   object-fit:cover;
   transition:1s;
 }
 
-.showcase-image:hover img{
+.feature-photo:hover img{
   transform:scale(1.05);
 }
 
-.showcase h2{
+.feature-copy h2{
   font-family:"Playfair Display",serif;
-  font-size:55px;
+  font-size:58px;
   font-weight:500;
   line-height:1;
+  margin:15px 0 20px;
 }
 
-.showcase-text{
-  color:#999;
+.feature-copy h2 em{
+  color:var(--gold2);
+}
+
+.feature-copy p{
+  color:#919089;
   line-height:1.9;
-  margin-top:20px;
   font-size:14px;
 }
 
-.points{
+.feature-list{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:12px;
+  gap:14px;
   margin:30px 0;
 }
 
-.points div{
+.feature-list div{
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
   color:#bbb;
   font-size:11px;
-  border-bottom:1px solid var(--line);
-  padding-bottom:12px;
 }
 
 /* =========================
    CATALOGUE
 ========================= */
 
+.catalogue{
+  padding:0 0 110px;
+}
+
 .catalogue-tools{
   display:flex;
   gap:10px;
+  margin-bottom:25px;
 }
 
-.search-box{
-  height:42px;
-  border:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  padding:0 12px;
-  background:#0e0e0d;
-  min-width:240px;
-}
-
-.search-box span{
-  color:var(--gold);
-  margin-right:8px;
-}
-
-.search-box input{
-  background:transparent;
-  border:0;
-  outline:0;
+.search{
+  flex:1;
+  height:48px;
+  border:1px solid var(--border);
+  background:#0d0d0c;
   color:white;
-  width:100%;
-  font-size:12px;
+  padding:0 16px;
+  outline:none;
 }
 
-select{
-  background:#0e0e0d;
+.search:focus{
+  border-color:var(--gold);
+}
+
+.filter{
+  height:48px;
+  border:1px solid var(--border);
+  background:#0d0d0c;
   color:#ddd;
-  border:1px solid var(--line);
-  padding:0 12px;
-  outline:0;
+  padding:0 15px;
+  outline:none;
 }
 
-.catalogue-grid{
+.gallery{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:15px;
+  gap:14px;
 }
 
-.sofa-card{
-  background:#10100e;
-  border:1px solid rgba(255,255,255,.06);
+.card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.055);
   overflow:hidden;
   cursor:pointer;
-
-  opacity:0;
-  transform:translateY(25px);
-
-  animation:cardIn .7s forwards;
+  transition:.35s;
 }
 
-@keyframes cardIn{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+.card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(213,166,66,.55);
+  box-shadow:0 20px 45px rgba(0,0,0,.35);
 }
 
-.sofa-image{
-  height:255px;
+.card-image{
+  height:270px;
+  background:#15130f;
   overflow:hidden;
-  background:#161512;
 }
 
-.sofa-image img{
+.card-image img{
   width:100%;
   height:100%;
   object-fit:cover;
   transition:.7s;
 }
 
-.sofa-card:hover{
-  border-color:rgba(213,166,66,.5);
-  transform:translateY(-7px);
-  transition:.35s;
+.card:hover .card-image img{
+  transform:scale(1.06);
 }
 
-.sofa-card:hover img{
-  transform:scale(1.07);
-}
-
-.sofa-info{
+.card-info{
   padding:15px;
 }
 
-.sofa-info small{
+.card-info small{
   color:var(--gold);
-  font-size:9px;
+  font-size:8px;
   letter-spacing:.18em;
   text-transform:uppercase;
 }
 
-.sofa-info h3{
+.card-info h3{
   font-family:"Playfair Display",serif;
+  font-size:18px;
   font-weight:500;
-  font-size:19px;
-  margin:6px 0;
+  margin:7px 0;
 }
 
-.sofa-info p{
+.card-info p{
   color:#777;
   font-size:10px;
 }
 
-.sofa-bottom{
-  display:flex;
-  justify-content:space-between;
+.card-bottom{
   margin-top:14px;
+  display:flex;
   align-items:center;
+  justify-content:space-between;
 }
 
-.sofa-bottom b{
+.price{
   color:var(--gold2);
   font-size:12px;
-}
-
-.sofa-bottom span{
-  color:#777;
-  font-size:10px;
-}
-
-.no-results{
-  display:none;
-  color:#777;
-  text-align:center;
-  padding:50px;
-}
-
-/* =========================
-   SALE
-========================= */
-
-.sale{
-  padding:0 20px 110px;
-}
-
-.sale-box{
-  max-width:var(--max);
-  margin:auto;
-
-  border:1px solid var(--line);
-
-  padding:45px;
-
-  display:grid;
-  grid-template-columns:1fr .7fr auto;
-  align-items:center;
-  gap:30px;
-
-  background:
-  radial-gradient(
-    circle at 80% 50%,
-    rgba(213,166,66,.15),
-    transparent 35%
-  ),
-  #11100d;
-}
-
-.sale h2{
-  font-family:"Playfair Display",serif;
-  font-weight:500;
-  font-size:45px;
-  line-height:1;
-}
-
-.sale-word{
-  font-size:38px;
-  letter-spacing:.15em;
-  color:var(--gold2);
   font-weight:700;
 }
 
-.sale-text{
+.view{
   color:#888;
-  font-size:11px;
-  line-height:1.6;
+  font-size:10px;
+}
+
+.no-result{
+  display:none;
+  text-align:center;
+  color:#777;
+  padding:60px;
+}
+
+/* =========================
+   OFFER
+========================= */
+
+.offer-section{
+  padding-bottom:110px;
+}
+
+.offer-box{
+  border:1px solid var(--border);
+  background:
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(213,166,66,.15),
+      transparent 38%
+    ),
+    #11100d;
+
+  padding:50px;
+
+  display:grid;
+  grid-template-columns:1fr .7fr auto;
+  gap:30px;
+  align-items:center;
+}
+
+.offer-box h2{
+  font-family:"Playfair Display",serif;
+  font-size:48px;
+  font-weight:500;
+  line-height:1;
+  margin-top:10px;
+}
+
+.offer-box h2 em{
+  color:var(--gold2);
+}
+
+.offer-middle strong{
+  display:block;
+  color:var(--gold2);
+  font-size:37px;
+  letter-spacing:.15em;
+}
+
+.offer-middle p{
+  color:#777;
+  font-size:10px;
+  line-height:1.7;
+  margin-top:7px;
 }
 
 /* =========================
@@ -853,78 +790,78 @@ select{
 ========================= */
 
 .custom{
-  padding:0 20px 110px;
+  padding-bottom:110px;
 }
 
 .custom-box{
-  max-width:var(--max);
-  margin:auto;
-
   display:grid;
   grid-template-columns:1fr 1fr;
+  border:1px solid var(--border);
+  background:#100f0d;
+}
 
-  border:1px solid var(--line);
-
+.custom-copy{
+  padding:60px;
   background:
-  linear-gradient(
-    135deg,
-    #16120c,
-    #0c0c0b
-  );
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(213,166,66,.12),
+      transparent 40%
+    );
 }
 
-.custom-left{
-  padding:60px 50px;
-}
-
-.custom-left h2{
+.custom-copy h2{
   font-family:"Playfair Display",serif;
-  font-size:55px;
+  font-size:58px;
   font-weight:500;
   line-height:1;
+  margin-top:15px;
 }
 
-.custom-left p{
-  color:#999;
+.custom-copy h2 em{
+  color:var(--gold2);
+}
+
+.custom-copy p{
+  color:#888;
   font-size:13px;
   line-height:1.8;
   margin-top:20px;
 }
 
-.swatches{
+.colors{
   display:flex;
   gap:10px;
   margin-top:30px;
 }
 
-.swatch{
-  width:30px;
-  height:30px;
+.color{
+  width:31px;
+  height:31px;
   border-radius:50%;
   border:2px solid transparent;
   cursor:pointer;
 }
 
-.swatch.active{
-  border-color:var(--gold2);
-  box-shadow:0 0 0 3px rgba(213,166,66,.15);
+.color.active{
+  border-color:white;
+  box-shadow:0 0 0 3px rgba(213,166,66,.35);
 }
 
-.selected{
+.selected-color{
   color:#777;
   font-size:10px;
+  margin-top:9px;
   display:block;
-  margin-top:10px;
 }
 
-.selected b{
+.selected-color b{
   color:#ddd;
 }
 
 .custom-form{
-  padding:60px 50px;
-  border-left:1px solid var(--line);
-
+  padding:60px;
+  border-left:1px solid var(--border);
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:11px;
@@ -933,11 +870,19 @@ select{
 .custom-form input,
 .custom-form select,
 .custom-form textarea{
-  background:#090908;
-  border:1px solid rgba(255,255,255,.09);
+  width:100%;
+  background:#080808;
   color:#ddd;
-  padding:13px;
+  border:1px solid rgba(255,255,255,.08);
+  padding:14px;
   outline:none;
+  font-family:inherit;
+}
+
+.custom-form input:focus,
+.custom-form select:focus,
+.custom-form textarea:focus{
+  border-color:var(--gold);
 }
 
 .custom-form textarea{
@@ -954,57 +899,62 @@ select{
 ========================= */
 
 .about{
-  max-width:var(--max);
-  margin:auto;
-  padding:20px 20px 110px;
+  padding-bottom:110px;
+}
 
+.about-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:.9fr 1.1fr;
   gap:70px;
   align-items:center;
 }
 
-.about-image{
-  height:580px;
+.about-photo{
+  height:570px;
+  border:1px solid var(--border);
   overflow:hidden;
-  border:1px solid var(--line);
 }
 
-.about-image img{
+.about-photo img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.about h2{
+.about-copy h2{
   font-family:"Playfair Display",serif;
-  font-size:55px;
-  font-weight:500;
+  font-size:58px;
   line-height:1;
+  font-weight:500;
+  margin-top:15px;
 }
 
-.about p{
-  color:#999;
+.about-copy h2 em{
+  color:var(--gold2);
+}
+
+.about-copy p{
+  color:#919089;
   line-height:1.9;
   font-size:14px;
-  margin-top:20px;
+  margin-top:22px;
 }
 
-.about-stats{
+.stats{
   display:flex;
   gap:45px;
   margin-top:35px;
 }
 
-.about-stat b{
+.stat strong{
   display:block;
   color:var(--gold2);
   font-family:"Playfair Display",serif;
-  font-size:24px;
+  font-size:25px;
 }
 
-.about-stat span{
-  color:#777;
+.stat span{
+  color:#666;
   font-size:9px;
   text-transform:uppercase;
 }
@@ -1014,9 +964,7 @@ select{
 ========================= */
 
 .contact{
-  max-width:var(--max);
-  margin:auto;
-  padding:20px 20px 110px;
+  padding-bottom:110px;
 }
 
 .contact-grid{
@@ -1028,34 +976,33 @@ select{
 .contact-card{
   padding:30px;
   background:#10100e;
-  border:1px solid var(--line);
+  border:1px solid var(--border);
   text-decoration:none;
-  color:white;
   transition:.35s;
 }
 
 .contact-card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-6px);
   border-color:var(--gold);
-  box-shadow:0 20px 50px rgba(0,0,0,.4);
 }
 
-.contact-card span{
+.contact-card small{
   color:var(--gold);
   font-size:9px;
   letter-spacing:.2em;
 }
 
-.contact-card b{
+.contact-card strong{
   display:block;
   font-family:"Playfair Display",serif;
-  font-size:20px;
+  font-size:19px;
   margin:10px 0;
   word-break:break-word;
 }
 
-.contact-card small{
+.contact-card span{
   color:#777;
+  font-size:10px;
 }
 
 /* =========================
@@ -1063,16 +1010,16 @@ select{
 ========================= */
 
 footer{
-  background:#060606;
-  border-top:1px solid var(--line);
-  padding:45px max(20px,calc((100vw - var(--max))/2)) 25px;
+  border-top:1px solid var(--border);
+  background:#050505;
+  padding:45px 0 25px;
 }
 
 .footer-top{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:30px;
+  justify-content:space-between;
+  gap:25px;
 }
 
 .footer-links{
@@ -1081,27 +1028,21 @@ footer{
 }
 
 .footer-links a{
-  color:#888;
-  font-size:11px;
+  color:#777;
+  text-decoration:none;
+  font-size:10px;
 }
 
 .footer-links a:hover{
   color:var(--gold2);
 }
 
-.footer-tagline{
-  color:#666;
-  font-size:11px;
-}
-
 .footer-bottom{
   border-top:1px solid rgba(255,255,255,.06);
   margin-top:35px;
   padding-top:18px;
-
   display:flex;
   justify-content:space-between;
-
   color:#555;
   font-size:9px;
 }
@@ -1113,176 +1054,89 @@ footer{
 .modal{
   position:fixed;
   inset:0;
-  z-index:200;
-
-  background:rgba(0,0,0,.78);
+  z-index:5000;
+  background:rgba(0,0,0,.88);
   backdrop-filter:blur(12px);
-
   display:none;
   align-items:center;
   justify-content:center;
-
   padding:20px;
 }
 
-.modal.open{
+.modal.show{
   display:flex;
 }
 
 .modal-box{
-  width:min(1000px,100%);
-  background:#11100e;
-  border:1px solid var(--line);
-
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-
-  position:relative;
-
+  width:min(1050px,100%);
+  max-height:90vh;
   overflow:hidden;
+  background:#11100e;
+  border:1px solid var(--border);
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  position:relative;
 }
 
 .modal-image{
-  height:600px;
+  height:650px;
+  background:#0a0a09;
 }
 
 .modal-image img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
 }
 
-.modal-content{
+.modal-copy{
   padding:55px 45px;
   display:flex;
   flex-direction:column;
   justify-content:center;
 }
 
-.modal-content h2{
+.modal-copy h2{
   font-family:"Playfair Display",serif;
   font-size:45px;
   font-weight:500;
+  margin:12px 0;
 }
 
-.modal-content p{
-  color:#999;
-  font-size:13px;
+.modal-copy p{
+  color:#888;
   line-height:1.8;
-  margin:15px 0;
+  font-size:13px;
 }
 
 .close{
   position:absolute;
-  right:15px;
-  top:10px;
-
-  background:none;
-  border:0;
-  color:#aaa;
-
-  font-size:30px;
-
-  cursor:pointer;
-
   z-index:5;
-}
-
-/* =========================
-   SEARCH MODAL
-========================= */
-
-.search-modal{
-  position:fixed;
-  inset:0;
-  z-index:210;
-
-  background:rgba(0,0,0,.75);
-  backdrop-filter:blur(12px);
-
-  display:none;
-  align-items:center;
-  justify-content:center;
-
-  padding:20px;
-}
-
-.search-modal.open{
-  display:flex;
-}
-
-.search-panel{
-  width:min(600px,100%);
-  background:#11100e;
-  border:1px solid var(--line);
-  padding:50px;
-  position:relative;
-}
-
-.search-panel h2{
-  font-family:"Playfair Display",serif;
-  font-size:50px;
-  font-weight:500;
-  margin-bottom:20px;
-}
-
-.search-panel input{
-  width:100%;
-  padding:17px;
-  background:#080808;
+  top:12px;
+  right:14px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:#111;
   color:white;
-  border:1px solid var(--line);
-  outline:none;
+  font-size:23px;
+  cursor:pointer;
 }
 
 /* =========================
-   REVEAL ANIMATION
+   REVEAL
 ========================= */
 
 .reveal{
   opacity:0;
   transform:translateY(30px);
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
+  transition:.8s ease;
 }
 
-.reveal.show{
+.reveal.visible{
   opacity:1;
   transform:none;
-}
-
-/* =========================
-   BACK TOP
-========================= */
-
-.back-top{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-
-  width:43px;
-  height:43px;
-
-  border-radius:50%;
-  border:1px solid var(--line);
-
-  background:#0d0c0a;
-  color:var(--gold2);
-
-  cursor:pointer;
-
-  opacity:0;
-  pointer-events:none;
-
-  transition:.3s;
-
-  z-index:50;
-}
-
-.back-top.show{
-  opacity:1;
-  pointer-events:auto;
 }
 
 /* =========================
@@ -1291,76 +1145,81 @@ footer{
 
 @media(max-width:950px){
 
-  nav{
+  .nav-links{
     display:none;
   }
 
-  .menu-btn{
+  .menu{
     display:block;
   }
 
-  .catalogue-grid{
-    grid-template-columns:repeat(3,1fr);
+  .trust-grid{
+    grid-template-columns:1fr 1fr;
   }
 
-  .showcase,
-  .about,
+  .collections{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:250px 250px;
+  }
+
+  .collection-card:first-child{
+    grid-row:auto;
+  }
+
+  .feature-grid,
+  .about-grid,
   .custom-box{
     grid-template-columns:1fr;
   }
 
   .custom-form{
     border-left:0;
-    border-top:1px solid var(--line);
+    border-top:1px solid var(--border);
   }
 
-  .sale-box{
+  .gallery{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .offer-box{
     grid-template-columns:1fr;
   }
 
   .contact-grid{
     grid-template-columns:1fr;
   }
-
-  .feature-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .feature:first-child{
-    grid-row:auto;
-  }
 }
 
 @media(max-width:650px){
 
-  .offer-bar{
-    font-size:8px;
-    gap:8px;
+  .topbar{
+    font-size:7px;
   }
 
-  .offer-bar span:nth-child(2){
+  .topbar span:nth-child(2){
     display:none;
   }
 
   header{
-    height:67px;
+    height:68px;
   }
 
-  .logo b{
-    font-size:12px;
+  .brand-name strong{
+    font-size:13px;
   }
 
-  .logo small{
-    font-size:7px;
+  .brand-mark{
+    width:37px;
+    height:37px;
   }
 
-  .header-right .gold-btn{
+  .nav-actions .btn{
     display:none;
   }
 
   .hero{
-    min-height:650px;
-    height:calc(100vh - 102px);
+    height:700px;
+    min-height:700px;
   }
 
   .hero-content{
@@ -1368,94 +1227,116 @@ footer{
     right:20px;
   }
 
-  .hero h1{
+  .hero-content h1{
     font-size:51px;
   }
 
-  .hero-text{
-    font-size:13px;
+  .hero-content p.description{
+    font-size:12px;
   }
 
-  .hero-stats{
+  .hero-info{
     gap:15px;
     margin-top:35px;
   }
 
-  .hero-stat b{
+  .hero-info strong{
     font-size:14px;
   }
 
-  .trust{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .trust-item{
-    padding:16px;
-  }
-
   .section{
-    padding:80px 16px;
+    padding:75px 0;
   }
 
-  .section-head{
+  .section-heading{
     flex-direction:column;
     align-items:flex-start;
   }
 
-  .feature-grid{
-    grid-template-columns:1fr;
+  .section-heading h2{
+    font-size:44px;
   }
 
-  .showcase{
-    padding:0 16px 80px;
+  .collections{
+    grid-template-columns:1fr;
+    grid-template-rows:260px;
+  }
+
+  .collection-card{
+    height:260px;
+  }
+
+  .feature{
+    padding-bottom:80px;
+  }
+
+  .feature-grid{
     gap:35px;
   }
 
-  .showcase-image{
+  .feature-photo{
     height:430px;
   }
 
-  .showcase h2{
-    font-size:43px;
+  .feature-copy h2{
+    font-size:45px;
+  }
+
+  .catalogue{
+    padding-bottom:80px;
   }
 
   .catalogue-tools{
-    width:100%;
     flex-direction:column;
   }
 
-  .search-box{
-    min-width:0;
-  }
-
-  .catalogue-grid{
+  .gallery{
     grid-template-columns:1fr 1fr;
     gap:9px;
   }
 
-  .sofa-image{
-    height:175px;
+  .card-image{
+    height:180px;
   }
 
-  .sofa-info{
-    padding:11px;
+  .card-info{
+    padding:10px;
   }
 
-  .sofa-info h3{
-    font-size:16px;
+  .card-info h3{
+    font-size:15px;
   }
 
-  .custom{
-    padding:0 16px 80px;
+  .card-info p{
+    display:none;
   }
 
-  .custom-left,
+  .price{
+    font-size:10px;
+  }
+
+  .offer-section,
+  .custom,
+  .about,
+  .contact{
+    padding-bottom:80px;
+  }
+
+  .offer-box{
+    padding:32px 25px;
+  }
+
+  .offer-box h2{
+    font-size:39px;
+  }
+
+  .custom-copy,
   .custom-form{
     padding:38px 25px;
   }
 
-  .custom-left h2{
-    font-size:42px;
+  .custom-copy h2{
+    font-size:43px;
   }
 
   .custom-form{
@@ -1467,20 +1348,16 @@ footer{
     grid-column:auto;
   }
 
-  .about{
-    padding:0 16px 80px;
-  }
-
-  .about-image{
+  .about-photo{
     height:430px;
   }
 
-  .about h2{
+  .about-copy h2{
     font-size:43px;
   }
 
-  .contact{
-    padding:0 16px 80px;
+  .stats{
+    gap:22px;
   }
 
   .footer-top,
@@ -1489,825 +1366,975 @@ footer{
     align-items:flex-start;
   }
 
+  .footer-links{
+    flex-wrap:wrap;
+  }
+
   .modal-box{
     grid-template-columns:1fr;
+    max-height:92vh;
+    overflow:auto;
   }
 
   .modal-image{
-    height:320px;
+    height:350px;
   }
 
-  .modal-content{
-    padding:35px 25px;
+  .modal-copy{
+    padding:30px 25px;
   }
 
-  .modal-content h2{
+  .modal-copy h2{
     font-size:35px;
   }
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="bg-orb orb1"></div>
-<div class="bg-orb orb2"></div>
-<div class="bg-orb orb3"></div>
+<!-- TOP BAR -->
 
-<!-- OFFER -->
-<div class="offer-bar">
-  <span>✦ LIMITED-TIME OFFER</span>
-  <span>Special pricing on selected sofa designs</span>
+<div class="topbar">
+
+  <span>✦ DREAM FURNITURE HANDICRAFT</span>
+
+  <span>Premium Sofa Collection</span>
+
   <a href="#contact">Enquire Now →</a>
+
 </div>
 
+
 <!-- HEADER -->
+
 <header>
 
-  <a href="#home" class="logo">
-    <img src="assets/dfh-logo.jpg" alt="DFH">
-    <span>
-      <b>Dream Furniture</b>
-      <small>Handicraft</small>
-    </span>
-  </a>
+<div class="container nav">
 
-  <nav id="mainNav">
-    <a href="#home">Home</a>
-    <a href="#collections">Collections</a>
-    <a href="#catalogue">Sofas</a>
-    <a href="#custom">Custom</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<a href="#home" class="brand">
 
-  <div class="header-right">
+  <div class="brand-mark">
+    DF
+  </div>
 
-    <button class="search-btn" id="searchButton">
-      ⌕
-    </button>
+  <div class="brand-name">
 
-    <a
-      class="gold-btn"
-      href="https://wa.me/918218364238?text=Hi%20DFH%2C%20I%20want%20to%20enquire%20about%20a%20sofa."
-      target="_blank">
-      WhatsApp
-    </a>
+    <strong>Dream Furniture</strong>
 
-    <button class="menu-btn" id="menuButton">
-      ☰
-    </button>
+    <span>HANDICRAFT</span>
 
   </div>
+
+</a>
+
+
+<nav class="nav-links" id="navLinks">
+
+  <a href="#home">Home</a>
+
+  <a href="#collections">Collections</a>
+
+  <a href="#catalogue">Sofas</a>
+
+  <a href="#custom">Custom</a>
+
+  <a href="#about">About</a>
+
+  <a href="#contact">Contact</a>
+
+</nav>
+
+
+<div class="nav-actions">
+
+  <button class="icon-btn" id="searchButton">
+    ⌕
+  </button>
+
+  <a
+    class="btn btn-gold"
+    target="_blank"
+    href="https://wa.me/918218364238?text=Hi%20Dream%20Furniture%2C%20I%20want%20to%20enquire%20about%20a%20sofa.">
+
+    WhatsApp
+
+  </a>
+
+  <button class="icon-btn menu" id="menuButton">
+    ☰
+  </button>
+
+</div>
+
+</div>
 
 </header>
 
+
 <!-- HERO -->
+
 <section class="hero" id="home">
 
-  <div class="hero-slides" id="heroSlides"></div>
+<div class="hero-images" id="heroImages"></div>
 
-  <div class="hero-overlay"></div>
+<div class="hero-content">
 
-  <div class="hero-content">
+  <div class="eyebrow">
+    DREAM FURNITURE HANDICRAFT
+  </div>
 
-    <p class="eyebrow">
-      DREAM FURNITURE HANDICRAFT
-    </p>
+  <h1>
+    Comfort.<br>
+    <em>Designed</em> beautifully.
+  </h1>
 
-    <h1>
-      Comfort,<br>
-      <em>crafted</em> for your space.
-    </h1>
+  <p class="description">
+    Discover premium sofa designs made for modern
+    living spaces. Explore our collection or create
+    a custom sofa for your home.
+  </p>
 
-    <p class="hero-text">
-      Premium sofa designs, thoughtful details and custom comfort —
-      made to feel like home.
-    </p>
+  <div class="hero-buttons">
 
-    <div class="hero-buttons">
+    <a class="btn btn-gold" href="#catalogue">
+      Explore Sofas ↗
+    </a>
 
-      <a class="gold-btn" href="#catalogue">
-        Explore Sofas ↗
-      </a>
+    <a class="btn btn-outline" href="#custom">
+      Custom Design
+    </a>
 
-      <a class="outline-btn" href="#custom">
-        Design Yours
-      </a>
+  </div>
 
+  <div class="hero-info">
+
+    <div>
+      <strong>258+</strong>
+      <span>Designs</span>
     </div>
 
-    <div class="hero-stats">
+    <div>
+      <strong>Custom</strong>
+      <span>Colours & Sizes</span>
+    </div>
 
-      <div class="hero-stat">
-        <b>258+</b>
-        <span>Catalogue Designs</span>
-      </div>
-
-      <div class="hero-stat">
-        <b>Custom</b>
-        <span>Sizes & Colours</span>
-      </div>
-
-      <div class="hero-stat">
-        <b>India</b>
-        <span>Delivery Available</span>
-      </div>
-
+    <div>
+      <strong>India</strong>
+      <span>Delivery</span>
     </div>
 
   </div>
 
-  <div class="hero-dots" id="heroDots"></div>
+</div>
 
-  <div class="progress">
-    <span id="progressBar"></span>
-  </div>
+
+<div class="hero-dots" id="heroDots"></div>
 
 </section>
+
 
 <!-- TRUST -->
-<section class="trust reveal">
+
+<section class="trust">
+
+<div class="container trust-grid">
 
   <div class="trust-item">
-    <span class="trust-number">01</span>
-    <b>Premium Finish</b>
-    <span>Designed for modern homes</span>
+    <small>01</small>
+    <strong>Premium Designs</strong>
+    <span>Elegant sofa styles</span>
   </div>
 
   <div class="trust-item">
-    <span class="trust-number">02</span>
-    <b>Custom Comfort</b>
-    <span>Choose size & colour</span>
+    <small>02</small>
+    <strong>Custom Options</strong>
+    <span>Size & colour choices</span>
   </div>
 
   <div class="trust-item">
-    <span class="trust-number">03</span>
-    <b>Made With Care</b>
-    <span>Detail-focused craftsmanship</span>
+    <small>03</small>
+    <strong>258+ Designs</strong>
+    <span>Complete catalogue</span>
   </div>
 
   <div class="trust-item">
-    <span class="trust-number">04</span>
-    <b>Easy Enquiry</b>
-    <span>WhatsApp & Call Support</span>
+    <small>04</small>
+    <strong>Direct Enquiry</strong>
+    <span>WhatsApp & Call</span>
   </div>
+
+</div>
 
 </section>
+
 
 <!-- COLLECTIONS -->
+
 <section class="section" id="collections">
 
-  <div class="section-head reveal">
+<div class="container">
 
-    <div>
-      <p class="eyebrow">CURATED FOR YOU</p>
+<div class="section-heading reveal">
 
-      <h2>
-        Explore the <em>collection</em>
-      </h2>
-    </div>
+<div>
 
-    <p>
-      From compact seating to statement sectionals,
-      discover a style for every room.
-    </p>
-
+  <div class="eyebrow">
+    OUR COLLECTION
   </div>
 
-  <div class="feature-grid" id="featureGrid"></div>
+  <h2>
+    Find your <em>style.</em>
+  </h2>
+
+</div>
+
+<p>
+  Explore different sofa styles and discover the
+  design that fits your space.
+</p>
+
+</div>
+
+
+<div class="collections" id="collectionsGrid"></div>
+
+</div>
 
 </section>
 
-<!-- SHOWCASE -->
-<section class="showcase reveal">
 
-  <div class="showcase-image">
-    <img
-      src="assets/home/home-05.png"
-      alt="DFH premium sofa">
+<!-- FEATURE -->
+
+<section class="feature">
+
+<div class="container feature-grid reveal">
+
+<div class="feature-photo">
+
+  <img
+    id="featureImage"
+    src="images_batch_1/images/catalogue-3.jpg"
+    alt="Dream Furniture Sofa">
+
+</div>
+
+
+<div class="feature-copy">
+
+  <div class="eyebrow">
+    THE DFH FEEL
   </div>
 
-  <div>
+  <h2>
+    Luxury that feels
+    <em>like home.</em>
+  </h2>
 
-    <p class="eyebrow">
-      THE DFH FEEL
-    </p>
+  <p>
+    Clean silhouettes, elegant proportions and
+    comfortable designs come together to create
+    sofas made for beautiful everyday spaces.
+  </p>
 
-    <h2>
-      Luxury that still feels
-      <em>like home.</em>
-    </h2>
 
-    <p class="showcase-text">
-      Warm textures, clean silhouettes and room-ready designs
-      come together for a premium look without losing everyday comfort.
-    </p>
+  <div class="feature-list">
 
-    <div class="points">
+    <div>✦ Modern silhouettes</div>
 
-      <div>✦ Modern silhouettes</div>
-      <div>✦ Premium-looking finishes</div>
-      <div>✦ Custom colour options</div>
-      <div>✦ Direct WhatsApp enquiry</div>
+    <div>✦ Premium finish</div>
 
-    </div>
+    <div>✦ Custom colours</div>
 
-    <a class="gold-btn" href="#contact">
-      Talk to DFH ↗
-    </a>
+    <div>✦ Custom dimensions</div>
+
+    <div>✦ Multiple sofa styles</div>
+
+    <div>✦ Direct enquiry</div>
 
   </div>
+
+
+  <a class="btn btn-gold" href="#catalogue">
+    View Collection ↗
+  </a>
+
+</div>
+
+</div>
 
 </section>
+
 
 <!-- CATALOGUE -->
-<section class="section" id="catalogue">
 
-  <div class="section-head reveal">
+<section class="catalogue" id="catalogue">
 
-    <div>
+<div class="container">
 
-      <p class="eyebrow">
-        THE FULL RANGE
-      </p>
+<div class="section-heading reveal">
 
-      <h2>
-        258 sofa <em>designs</em>
-      </h2>
+<div>
 
-    </div>
-
-    <p>
-      Browse the complete catalogue and tap any design
-      to enquire about colour, size and pricing.
-    </p>
-
+  <div class="eyebrow">
+    COMPLETE CATALOGUE
   </div>
 
-  <div class="catalogue-tools">
+  <h2>
+    258 sofa <em>designs.</em>
+  </h2>
 
-    <div class="search-box">
+</div>
 
-      <span>⌕</span>
+<p>
+  Browse the complete Dream Furniture catalogue.
+  Click any design to view it larger and enquire.
+</p>
 
-      <input
-        id="catalogueSearch"
-        placeholder="Search sofa..."
-        autocomplete="off">
+</div>
 
-    </div>
 
-    <select id="categoryFilter">
+<div class="catalogue-tools">
 
-      <option value="all">All Designs</option>
+<input
+  class="search"
+  id="search"
+  type="search"
+  placeholder="Search design number...">
 
-      <option value="single">1 Seater</option>
-      <option value="two">2 Seater</option>
-      <option value="three">3 Seater</option>
-      <option value="four">4 Seater</option>
-      <option value="five">5 Seater</option>
-      <option value="six">6 Seater</option>
-      <option value="lshape">L-Shape</option>
-      <option value="sectional">Sectional</option>
-      <option value="recliner">Recliner</option>
+<select class="filter" id="filter">
 
-    </select>
+  <option value="all">
+    All Designs
+  </option>
 
-  </div>
+  <option value="1">
+    1 Seater
+  </option>
 
-  <br>
+  <option value="2">
+    2 Seater
+  </option>
 
-  <div class="catalogue-grid" id="catalogueGrid"></div>
+  <option value="3">
+    3 Seater
+  </option>
 
-  <div class="no-results" id="noResults">
-    No sofa design found.
-  </div>
+  <option value="4">
+    4 Seater
+  </option>
+
+  <option value="5">
+    5 Seater
+  </option>
+
+  <option value="6">
+    6 Seater
+  </option>
+
+  <option value="L">
+    L-Shape
+  </option>
+
+</select>
+
+</div>
+
+
+<div class="gallery" id="gallery"></div>
+
+<div class="no-result" id="noResult">
+  No sofa design found.
+</div>
+
+</div>
 
 </section>
 
-<!-- SALE -->
-<section class="sale reveal">
 
-  <div class="sale-box">
+<!-- OFFER -->
 
-    <div>
+<section class="offer-section">
 
-      <p class="eyebrow">
-        CURRENT OFFER
-      </p>
+<div class="container">
 
-      <h2>
-        A better sofa.<br>
-        <em>A better room.</em>
-      </h2>
+<div class="offer-box reveal">
 
-    </div>
+<div>
 
-    <div>
-
-      <div class="sale-word">
-        SALE
-      </div>
-
-      <p class="sale-text">
-        Selected designs have special enquiry pricing.
-        Contact DFH for the latest offer.
-      </p>
-
-    </div>
-
-    <a
-      class="gold-btn"
-      href="https://wa.me/918218364238?text=Hi%20DFH%2C%20please%20share%20your%20current%20offer%20and%20sofa%20pricing."
-      target="_blank">
-
-      Get Offer Price ↗
-
-    </a>
-
+  <div class="eyebrow">
+    SPECIAL ENQUIRY
   </div>
 
+  <h2>
+    Looking for your<br>
+    <em>perfect sofa?</em>
+  </h2>
+
+</div>
+
+
+<div class="offer-middle">
+
+  <strong>DFH</strong>
+
+  <p>
+    Ask us about current pricing,
+    colours, sizes and availability.
+  </p>
+
+</div>
+
+
+<a
+  class="btn btn-gold"
+  target="_blank"
+  href="https://wa.me/918218364238?text=Hi%20Dream%20Furniture%2C%20please%20share%20your%20sofa%20pricing.">
+
+  Get Price ↗
+
+</a>
+
+</div>
+
+</div>
+
 </section>
+
 
 <!-- CUSTOM -->
+
 <section class="custom" id="custom">
 
-  <div class="custom-box reveal">
+<div class="container">
 
-    <div class="custom-left">
+<div class="custom-box reveal">
 
-      <p class="eyebrow">
-        MAKE IT YOURS
-      </p>
+<div class="custom-copy">
 
-      <h2>
-        Custom sofa,
-        <em>your way.</em>
-      </h2>
+  <div class="eyebrow">
+    CUSTOM DESIGN
+  </div>
 
-      <p>
-        Tell us your preferred size, colour and requirements.
-        We'll turn your idea into a clear WhatsApp enquiry.
-      </p>
+  <h2>
+    Make it<br>
+    <em>yours.</em>
+  </h2>
 
-      <div class="swatches">
+  <p>
+    Tell us your sofa type, preferred size,
+    colour and requirements. We'll send your
+    enquiry directly to WhatsApp.
+  </p>
 
-        <button class="swatch active"
-          data-colour="Ivory"
-          style="background:#eee8dc"></button>
 
-        <button class="swatch"
-          data-colour="Beige"
-          style="background:#cdb99d"></button>
+  <div class="colors">
 
-        <button class="swatch"
-          data-colour="Olive"
-          style="background:#68705a"></button>
+    <button
+      class="color active"
+      data-color="Ivory"
+      style="background:#eee8dc">
+    </button>
 
-        <button class="swatch"
-          data-colour="Charcoal"
-          style="background:#303033"></button>
+    <button
+      class="color"
+      data-color="Beige"
+      style="background:#cdb99d">
+    </button>
 
-        <button class="swatch"
-          data-colour="Wine"
-          style="background:#6e2937"></button>
+    <button
+      class="color"
+      data-color="Grey"
+      style="background:#777">
+    </button>
 
-        <button class="swatch"
-          data-colour="Gold"
-          style="background:#d5a642"></button>
+    <button
+      class="color"
+      data-color="Charcoal"
+      style="background:#303030">
+    </button>
 
-      </div>
+    <button
+      class="color"
+      data-color="Wine"
+      style="background:#702d39">
+    </button>
 
-      <span class="selected">
-        Selected:
-        <b id="selectedColour">Ivory</b>
-      </span>
-
-    </div>
-
-    <form class="custom-form" id="customForm">
-
-      <input
-        id="customerName"
-        required
-        placeholder="Your name">
-
-      <input
-        id="customerPhone"
-        required
-        placeholder="Phone number">
-
-      <input
-        id="customerCity"
-        placeholder="City">
-
-      <select id="sofaType">
-
-        <option>3 Seater Sofa</option>
-        <option>4 Seater Sofa</option>
-        <option>L-Shape Sofa</option>
-        <option>Sectional Sofa</option>
-        <option>Recliner</option>
-        <option>Custom Sofa</option>
-
-      </select>
-
-      <input
-        id="sofaSize"
-        placeholder="Preferred size e.g. 84 × 34 in">
-
-      <textarea
-        id="requirements"
-        rows="4"
-        placeholder="Tell us your requirements..."></textarea>
-
-      <button class="gold-btn" type="submit">
-        Send Custom Enquiry ↗
-      </button>
-
-    </form>
+    <button
+      class="color"
+      data-color="Gold"
+      style="background:#d5a642">
+    </button>
 
   </div>
 
+  <span class="selected-color">
+    Selected colour:
+    <b id="selectedColor">Ivory</b>
+  </span>
+
+</div>
+
+
+<form class="custom-form" id="customForm">
+
+<input
+  id="name"
+  required
+  placeholder="Your name">
+
+<input
+  id="phone"
+  required
+  placeholder="Phone number">
+
+<input
+  id="city"
+  placeholder="City">
+
+<select id="sofaType">
+
+  <option>1 Seater Sofa</option>
+  <option>2 Seater Sofa</option>
+  <option>3 Seater Sofa</option>
+  <option>4 Seater Sofa</option>
+  <option>5 Seater Sofa</option>
+  <option>6 Seater Sofa</option>
+  <option>L-Shape Sofa</option>
+  <option>Sectional Sofa</option>
+  <option>Recliner</option>
+  <option>Custom Sofa</option>
+
+</select>
+
+<input
+  id="size"
+  placeholder="Preferred size">
+
+<textarea
+  id="requirements"
+  rows="5"
+  placeholder="Your requirements..."></textarea>
+
+<button class="btn btn-gold" type="submit">
+  Send Enquiry on WhatsApp ↗
+</button>
+
+</form>
+
+</div>
+
+</div>
+
 </section>
+
 
 <!-- ABOUT -->
+
 <section class="about" id="about">
 
-  <div class="about-image reveal">
+<div class="container about-grid reveal">
 
-    <img
-      src="assets/home/home-15.png"
-      alt="Dream Furniture Handicraft">
+<div class="about-photo">
 
+  <img
+    src="images_batch_1/images/catalogue-1.jpg"
+    alt="Dream Furniture Handicraft">
+
+</div>
+
+
+<div class="about-copy">
+
+  <div class="eyebrow">
+    ABOUT DREAM FURNITURE
   </div>
 
-  <div class="reveal">
+  <h2>
+    Furniture for
+    <em>beautiful spaces.</em>
+  </h2>
 
-    <p class="eyebrow">
-      ABOUT DFH
-    </p>
+  <p>
+    Dream Furniture Handicraft brings together
+    premium sofa designs for modern and elegant
+    homes. Browse the catalogue, choose a design,
+    or contact us with your custom requirements.
+  </p>
 
-    <h2>
-      Furniture with a
-      <em>personal touch.</em>
-    </h2>
+  <div class="stats">
 
-    <p>
-      Dream Furniture Handicraft brings together modern sofa styling,
-      comfort-first thinking and a premium visual finish.
-      Browse the catalogue, choose a design or send us your custom idea.
-    </p>
+    <div class="stat">
+      <strong>258+</strong>
+      <span>Catalogue Designs</span>
+    </div>
 
-    <div class="about-stats">
+    <div class="stat">
+      <strong>Custom</strong>
+      <span>Sizes & Colours</span>
+    </div>
 
-      <div class="about-stat">
-        <b>258+</b>
-        <span>Designs</span>
-      </div>
-
-      <div class="about-stat">
-        <b>Custom</b>
-        <span>Options</span>
-      </div>
-
-      <div class="about-stat">
-        <b>India</b>
-        <span>Delivery</span>
-      </div>
-
+    <div class="stat">
+      <strong>India</strong>
+      <span>Delivery</span>
     </div>
 
   </div>
 
+</div>
+
+</div>
+
 </section>
+
 
 <!-- CONTACT -->
+
 <section class="contact" id="contact">
 
-  <div class="section-head reveal">
+<div class="container">
 
-    <div>
+<div class="section-heading reveal">
 
-      <p class="eyebrow">
-        CONTACT DFH
-      </p>
+<div>
 
-      <h2>
-        Let's find your
-        <em>sofa.</em>
-      </h2>
-
-    </div>
-
-    <p>
-      Have a question, need a price or want a custom design?
-      Send an enquiry.
-    </p>
-
+  <div class="eyebrow">
+    CONTACT DFH
   </div>
 
-  <div class="contact-grid">
+  <h2>
+    Let's find your
+    <em>sofa.</em>
+  </h2>
 
-    <a
-      class="contact-card reveal"
-      href="https://wa.me/918218364238"
-      target="_blank">
+</div>
 
-      <span>WHATSAPP</span>
+<p>
+  Found a design you like? Send the design number
+  to us and ask about price, colour and availability.
+</p>
 
-      <b>
-        +91 82183 64238
-      </b>
+</div>
 
-      <small>
-        Chat with DFH ↗
-      </small>
 
-    </a>
+<div class="contact-grid">
 
-    <a
-      class="contact-card reveal"
-      href="mailto:dreamfurniturehandicarft@gmail.com">
+<a
+  class="contact-card reveal"
+  target="_blank"
+  href="https://wa.me/918218364238">
 
-      <span>EMAIL</span>
+  <small>WHATSAPP</small>
 
-      <b>
-        dreamfurniturehandicarft@gmail.com
-      </b>
+  <strong>
+    +91 82183 64238
+  </strong>
 
-      <small>
-        Send an email ↗
-      </small>
+  <span>
+    Chat with Dream Furniture →
+  </span>
 
-    </a>
+</a>
 
-    <a
-      class="contact-card reveal"
-      href="tel:+918218364238">
 
-      <span>CALL</span>
+<a
+  class="contact-card reveal"
+  href="tel:+918218364238">
 
-      <b>
-        +91 82183 64238
-      </b>
+  <small>CALL</small>
 
-      <small>
-        Call DFH ↗
-      </small>
+  <strong>
+    +91 82183 64238
+  </strong>
 
-    </a>
+  <span>
+    Call DFH →
+  </span>
 
-  </div>
+</a>
+
+
+<a
+  class="contact-card reveal"
+  href="mailto:dreamfurniturehandicarft@gmail.com">
+
+  <small>EMAIL</small>
+
+  <strong>
+    dreamfurniturehandicarft@gmail.com
+  </strong>
+
+  <span>
+    Send an email →
+  </span>
+
+</a>
+
+</div>
+
+</div>
 
 </section>
 
+
 <!-- FOOTER -->
+
 <footer>
 
-  <div class="footer-top">
+<div class="container">
 
-    <a href="#home" class="logo">
+<div class="footer-top">
 
-      <img
-        src="assets/dfh-logo.jpg"
-        alt="DFH">
+<a href="#home" class="brand">
 
-      <span>
-        <b>Dream Furniture</b>
-        <small>Handicraft</small>
-      </span>
+  <div class="brand-mark">
+    DF
+  </div>
 
-    </a>
+  <div class="brand-name">
 
-    <p class="footer-tagline">
-      Premium sofas. Personalized for you.
-    </p>
+    <strong>Dream Furniture</strong>
 
-    <div class="footer-links">
-
-      <a href="#home">Home</a>
-      <a href="#catalogue">Sofas</a>
-      <a href="#custom">Custom</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-
-    </div>
+    <span>HANDICRAFT</span>
 
   </div>
 
-  <div class="footer-bottom">
+</a>
 
-    <span>
-      © 2026 Dream Furniture Handicraft
-    </span>
 
-    <span>
-      Crafted for comfort • Designed for you
-    </span>
+<div class="footer-links">
 
-  </div>
+  <a href="#home">Home</a>
+  <a href="#catalogue">Sofas</a>
+  <a href="#custom">Custom</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 Dream Furniture Handicraft
+</span>
+
+<span>
+Premium Sofa Collection
+</span>
+
+</div>
+
+</div>
 
 </footer>
 
-<!-- BACK TOP -->
-<button class="back-top" id="backTop">
-  ↑
-</button>
-
-<!-- SEARCH MODAL -->
-<div class="search-modal" id="searchModal">
-
-  <div class="search-panel">
-
-    <button class="close" id="searchClose">
-      ×
-    </button>
-
-    <p class="eyebrow">
-      QUICK SEARCH
-    </p>
-
-    <h2>
-      Find a sofa
-    </h2>
-
-    <input
-      id="globalSearch"
-      placeholder="Type sofa name or design...">
-
-  </div>
-
-</div>
 
 <!-- PRODUCT MODAL -->
-<div class="modal" id="productModal">
 
-  <div class="modal-box">
+<div class="modal" id="modal">
 
-    <button class="close" id="modalClose">
-      ×
-    </button>
+<div class="modal-box">
 
-    <div class="modal-image">
+<button class="close" id="closeModal">
+  ×
+</button>
 
-      <img id="modalImg" src="" alt="">
+<div class="modal-image">
 
-    </div>
-
-    <div class="modal-content">
-
-      <p class="eyebrow">
-        DFH DESIGN
-      </p>
-
-      <h2 id="modalTitle">
-        DFH Sofa
-      </h2>
-
-      <p id="modalDescription">
-        Premium sofa design.
-      </p>
-
-      <p>
-        Current price:
-        <strong style="color:#f2d17a">
-          Enquiry
-        </strong>
-      </p>
-
-      <a
-        id="modalWhatsApp"
-        class="gold-btn"
-        target="_blank">
-
-        Enquire on WhatsApp ↗
-
-      </a>
-
-    </div>
-
-  </div>
+<img id="modalImage" alt="Sofa">
 
 </div>
+
+
+<div class="modal-copy">
+
+<div class="eyebrow">
+  DREAM FURNITURE
+</div>
+
+<h2 id="modalTitle">
+  DFH Sofa
+</h2>
+
+<p id="modalText">
+  Premium sofa design from the DFH catalogue.
+</p>
+
+<br>
+
+<p>
+  <b style="color:#f3d77d">
+    Price available on enquiry
+  </b>
+</p>
+
+<br>
+
+<a
+  id="modalWhatsApp"
+  class="btn btn-gold"
+  target="_blank">
+
+  Enquire on WhatsApp ↗
+
+</a>
+
+<br>
+
+<a
+  id="modalPdf"
+  class="btn btn-outline"
+  target="_blank">
+
+  Open Catalogue PDF ↗
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 
 <script>
 
 /* =====================================================
-   DFH WEBSITE JAVASCRIPT
+   SETTINGS
 ===================================================== */
 
 const WHATSAPP = "918218364238";
 
+const PDF = "dhf sofa c.pdf";
+
 
 /* =====================================================
-   HOME IMAGES
+   ACTUAL CATALOGUE IMAGE PATHS
 ===================================================== */
 
-const HOME_IMAGES = [];
+function imagePath(page){
 
-for(let i=1;i<=17;i++){
+  if(page <= 100){
 
-  HOME_IMAGES.push(
-    `assets/home/home-${String(i).padStart(2,"0")}.png`
-  );
+    return "images_batch_1/images/catalogue-" +
+           page +
+           ".jpg";
 
+  }
+
+  if(page <= 200){
+
+    return "catalogue-" +
+           page +
+           ".jpg";
+
+  }
+
+  return "images_batch_3/images/catalogue-" +
+         page +
+         ".jpg";
 }
 
 
 /* =====================================================
-   HERO SLIDER
-   3 SECOND GAP
+   HERO
 ===================================================== */
 
+const heroImages =
+[
+  1,
+  2,
+  3,
+  7,
+  10,
+  13
+];
+
 const heroContainer =
-  document.getElementById("heroSlides");
+document.getElementById("heroImages");
 
 const heroDots =
-  document.getElementById("heroDots");
-
-const progress =
-  document.getElementById("progressBar");
+document.getElementById("heroDots");
 
 let heroIndex = 0;
 
-const HERO_COUNT = 6;
 
-for(let i=0;i<HERO_COUNT;i++){
+heroImages.forEach(
+function(page,index){
 
   const slide =
-    document.createElement("div");
+  document.createElement("div");
 
   slide.className =
-    "hero-slide" +
-    (i===0 ? " active" : "");
+  "hero-image" +
+  (index===0 ? " active" : "");
 
   slide.innerHTML = `
     <img
-      src="${HOME_IMAGES[i]}"
-      alt="Dream Furniture Handicraft Sofa"
-      loading="${i===0 ? "eager" : "lazy"}">
+      src="${imagePath(page)}"
+      alt="Dream Furniture Sofa ${page}"
+      ${index===0 ? "" : "loading='lazy'"}>
   `;
 
   heroContainer.appendChild(slide);
 
 
   const dot =
-    document.createElement("button");
+  document.createElement("button");
 
-  if(i===0)
+  if(index===0)
     dot.classList.add("active");
 
-  dot.onclick = () => {
-    changeHero(i);
+  dot.onclick =
+  function(){
+
+    showHero(index);
+
     restartHero();
+
   };
 
   heroDots.appendChild(dot);
 
-}
+});
+
 
 const heroSlides =
-  [...heroContainer.children];
+[...document.querySelectorAll(".hero-image")];
 
-const dots =
-  [...heroDots.children];
+const heroDotButtons =
+[...heroDots.children];
 
 
-function changeHero(index){
+function showHero(index){
 
   heroIndex =
-    (index + heroSlides.length)
-    % heroSlides.length;
+  (index + heroSlides.length)
+  % heroSlides.length;
+
 
   heroSlides.forEach(
-    (slide,i)=>{
-      slide.classList.toggle(
-        "active",
-        i===heroIndex
-      );
-    }
-  );
+  function(slide,i){
 
-  dots.forEach(
-    (dot,i)=>{
-      dot.classList.toggle(
-        "active",
-        i===heroIndex
-      );
-    }
-  );
+    slide.classList.toggle(
+      "active",
+      i===heroIndex
+    );
 
-  progress.style.transition="none";
-  progress.style.width="0%";
+  });
 
-  requestAnimationFrame(()=>{
 
-    progress.style.transition=
-      "width 3s linear";
+  heroDotButtons.forEach(
+  function(dot,i){
 
-    progress.style.width="100%";
+    dot.classList.toggle(
+      "active",
+      i===heroIndex
+    );
 
   });
 
@@ -2316,19 +2343,20 @@ function changeHero(index){
 
 let heroTimer;
 
+
 function restartHero(){
 
   clearInterval(heroTimer);
 
-  changeHero(heroIndex);
-
   heroTimer =
-    setInterval(
-      ()=>{
-        changeHero(heroIndex+1);
-      },
-      3000
-    );
+  setInterval(
+    function(){
+
+      showHero(heroIndex+1);
+
+    },
+    4000
+  );
 
 }
 
@@ -2336,62 +2364,62 @@ restartHero();
 
 
 /* =====================================================
-   FEATURED COLLECTIONS
+   COLLECTIONS
 ===================================================== */
 
-const featured = [
-
+const collectionData =
+[
   {
-    title:"L-Shape Living",
-    text:"Flexible comfort for larger spaces",
-    image:HOME_IMAGES[1]
+    page:1,
+    title:"Luxury Living",
+    text:"Elegant sofa designs"
   },
 
   {
-    title:"Modern 4 Seater",
-    text:"Clean lines, premium presence",
-    image:HOME_IMAGES[4]
+    page:2,
+    title:"Curved Comfort",
+    text:"Soft modern silhouettes"
   },
 
   {
-    title:"Statement Lounge",
-    text:"A relaxed centrepiece",
-    image:HOME_IMAGES[8]
+    page:7,
+    title:"Modern Collection",
+    text:"Contemporary living"
   },
 
   {
-    title:"Classic Comfort",
-    text:"Timeless styling for everyday rooms",
-    image:HOME_IMAGES[10]
+    page:13,
+    title:"Statement Sofas",
+    text:"Designed to stand out"
   }
-
 ];
 
 
-const featureGrid =
-  document.getElementById("featureGrid");
+const collectionsGrid =
+document.getElementById("collectionsGrid");
 
 
-featured.forEach((item,index)=>{
+collectionData.forEach(
+function(item){
 
   const card =
-    document.createElement("article");
+  document.createElement("div");
 
   card.className =
-    "feature reveal";
+  "collection-card";
 
   card.innerHTML = `
 
     <img
-      src="${item.image}"
+      src="${imagePath(item.page)}"
       alt="${item.title}"
       loading="lazy">
 
-    <div class="feature-content">
+    <div class="collection-text">
 
-      <span>
+      <small>
         DFH COLLECTION
-      </span>
+      </small>
 
       <h3>
         ${item.title}
@@ -2405,17 +2433,20 @@ featured.forEach((item,index)=>{
 
   `;
 
-  card.onclick = () => {
+
+  card.onclick =
+  function(){
 
     openProduct(
-      item.image,
+      item.page,
       item.title,
       item.text
     );
 
   };
 
-  featureGrid.appendChild(card);
+
+  collectionsGrid.appendChild(card);
 
 });
 
@@ -2424,100 +2455,69 @@ featured.forEach((item,index)=>{
    CATALOGUE
 ===================================================== */
 
-const catalogue =
-  document.getElementById("catalogueGrid");
+const gallery =
+document.getElementById("gallery");
 
-const types = [
-  "single",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-  "lshape",
-  "sectional",
-  "recliner"
-];
-
-const typeNames = [
-  "1 Seater",
-  "2 Seater",
-  "3 Seater",
-  "4 Seater",
-  "5 Seater",
-  "6 Seater",
-  "L-Shape",
-  "Sectional",
-  "Recliner"
-];
-
-const cards=[];
+const cards = [];
 
 
-for(let i=1;i<=258;i++){
-
-  const type =
-    types[i % types.length];
-
-  const typeName =
-    typeNames[i % typeNames.length];
-
+for(
+  let page=1;
+  page<=258;
+  page++
+){
 
   const card =
-    document.createElement("article");
+  document.createElement("article");
 
   card.className =
-    "sofa-card";
+  "card";
+
+  card.dataset.page =
+  page;
+
+
+  const typeNumber =
+  ((page-1)%7)+1;
+
 
   card.dataset.type =
-    type;
-
-  card.dataset.search =
-    `
-    dfh design ${i}
-    ${typeName}
-    sofa
-    premium
-    `
-    .toLowerCase();
-
-
-  card.style.animationDelay =
-    `${Math.min((i%15)*0.04,.5)}s`;
+  typeNumber;
 
 
   card.innerHTML = `
 
-    <div class="sofa-image">
+    <div class="card-image">
 
       <img
-        src="images/catalogue-${i}.jpg"
-        alt="DFH ${typeName} Design ${i}"
+        src="${imagePath(page)}"
+        alt="Dream Furniture Sofa Design ${page}"
         loading="lazy">
 
     </div>
 
-    <div class="sofa-info">
+
+    <div class="card-info">
 
       <small>
-        ${typeName}
+        SOFA DESIGN
       </small>
 
       <h3>
-        DFH Design ${String(i).padStart(3,"0")}
+        DFH Design ${String(page).padStart(3,"0")}
       </h3>
 
       <p>
-        Premium sofa • Enquiry for price
+        Catalogue page ${page}
       </p>
 
-      <div class="sofa-bottom">
+      <div class="card-bottom">
 
-        <b>
-          Enquiry Price
-        </b>
+        <span class="price">
+          Price on Enquiry
+        </span>
 
-        <span>
+        <span class="view">
           View ↗
         </span>
 
@@ -2528,22 +2528,20 @@ for(let i=1;i<=258;i++){
   `;
 
 
-  card.onclick = () => {
+  card.onclick =
+  function(){
 
     openProduct(
-
-      `images/catalogue-${i}.jpg`,
-
-      `DFH Design ${String(i).padStart(3,"0")}`,
-
-      `${typeName} premium catalogue design. Ask DFH about available colours, sizes and customization.`
-
+      page,
+      "DFH Design " +
+      String(page).padStart(3,"0"),
+      "Premium sofa design from the Dream Furniture Handicraft catalogue."
     );
 
   };
 
 
-  catalogue.appendChild(card);
+  gallery.appendChild(card);
 
   cards.push(card);
 
@@ -2551,48 +2549,61 @@ for(let i=1;i<=258;i++){
 
 
 /* =====================================================
-   SEARCH / FILTER
+   SEARCH
 ===================================================== */
 
-const searchInput =
-  document.getElementById("catalogueSearch");
+const search =
+document.getElementById("search");
 
 const filter =
-  document.getElementById("categoryFilter");
+document.getElementById("filter");
 
-const noResults =
-  document.getElementById("noResults");
+const noResult =
+document.getElementById("noResult");
 
 
-function filterCatalogue(){
+function filterCards(){
 
   const query =
-    searchInput.value
-      .toLowerCase()
-      .trim();
-
-  const category =
-    filter.value;
-
-  let found=0;
+  search.value
+  .toLowerCase()
+  .trim();
 
 
-  cards.forEach(card=>{
-
-    const queryOK =
-      !query ||
-      card.dataset.search.includes(query);
-
-    const categoryOK =
-      category==="all" ||
-      card.dataset.type===category;
+  const selected =
+  filter.value;
 
 
-    if(queryOK && categoryOK){
+  let visible=0;
+
+
+  cards.forEach(
+  function(card){
+
+    const page =
+    card.dataset.page;
+
+
+    const matchesSearch =
+    !query ||
+    page.includes(query) ||
+    ("dfh design "+page)
+    .includes(query);
+
+
+    const matchesFilter =
+    selected==="all" ||
+    card.dataset.type===selected;
+
+
+    if(
+      matchesSearch &&
+      matchesFilter
+    ){
 
       card.style.display="block";
 
-      found++;
+      visible++;
 
     }else{
 
@@ -2603,20 +2614,23 @@ function filterCatalogue(){
   });
 
 
-  noResults.style.display =
-    found ? "none" : "block";
+  noResult.style.display =
+  visible===0
+  ? "block"
+  : "none";
 
 }
 
 
-searchInput.addEventListener(
+search.addEventListener(
   "input",
-  filterCatalogue
+  filterCards
 );
+
 
 filter.addEventListener(
   "change",
-  filterCatalogue
+  filterCards
 );
 
 
@@ -2624,191 +2638,140 @@ filter.addEventListener(
    PRODUCT MODAL
 ===================================================== */
 
-const productModal =
-  document.getElementById("productModal");
+const modal =
+document.getElementById("modal");
 
-const modalImg =
-  document.getElementById("modalImg");
+const modalImage =
+document.getElementById("modalImage");
 
 const modalTitle =
-  document.getElementById("modalTitle");
+document.getElementById("modalTitle");
 
-const modalDescription =
-  document.getElementById("modalDescription");
+const modalText =
+document.getElementById("modalText");
 
 const modalWhatsApp =
-  document.getElementById("modalWhatsApp");
+document.getElementById("modalWhatsApp");
+
+const modalPdf =
+document.getElementById("modalPdf");
 
 
 function openProduct(
-  image,
+  page,
   title,
-  description
+  text
 ){
 
-  modalImg.src =
-    image;
+  modalImage.src =
+  imagePath(page);
 
-  modalImg.alt =
-    title;
 
   modalTitle.textContent =
-    title;
+  title;
 
-  modalDescription.textContent =
-    description;
+
+  modalText.textContent =
+  text;
 
 
   modalWhatsApp.href =
-    `https://wa.me/${WHATSAPP}?text=${
-      encodeURIComponent(
-        "Hi DFH, I am interested in " +
-        title +
-        ". Please share price, colours and availability."
-      )
-    }`;
+  "https://wa.me/" +
+  WHATSAPP +
+  "?text=" +
+  encodeURIComponent(
+    "Hi Dream Furniture 👋\n\n" +
+    "I am interested in " +
+    title +
+    ".\n" +
+    "Catalogue Page: " +
+    page +
+    "\n\n" +
+    "Please share price, colour, size and availability."
+  );
 
 
-  productModal.classList.add("open");
+  modalPdf.href =
+  PDF +
+  "#page=" +
+  page;
 
-  document.body.style.overflow="hidden";
+
+  modal.classList.add("show");
+
+  document.body.style.overflow =
+  "hidden";
 
 }
 
 
 function closeProduct(){
 
-  productModal.classList.remove("open");
+  modal.classList.remove("show");
 
-  document.body.style.overflow="";
+  document.body.style.overflow =
+  "";
 
 }
 
 
 document
-  .getElementById("modalClose")
-  .onclick =
-  closeProduct;
+.getElementById("closeModal")
+.onclick =
+closeProduct;
 
 
-productModal.addEventListener(
-  "click",
-  event=>{
+modal.addEventListener(
+"click",
+function(event){
 
-    if(event.target===productModal){
+  if(event.target===modal){
 
-      closeProduct();
-
-    }
+    closeProduct();
 
   }
-);
 
-
-/* =====================================================
-   SEARCH POPUP
-===================================================== */
-
-const searchModal =
-  document.getElementById("searchModal");
-
-const globalSearch =
-  document.getElementById("globalSearch");
-
-
-document
-  .getElementById("searchButton")
-  .onclick = () => {
-
-    searchModal.classList.add("open");
-
-    globalSearch.focus();
-
-  };
-
-
-document
-  .getElementById("searchClose")
-  .onclick = () => {
-
-    searchModal.classList.remove("open");
-
-  };
-
-
-searchModal.addEventListener(
-  "click",
-  event=>{
-
-    if(event.target===searchModal){
-
-      searchModal.classList.remove("open");
-
-    }
-
-  }
-);
-
-
-globalSearch.addEventListener(
-  "keydown",
-  event=>{
-
-    if(event.key==="Enter"){
-
-      searchInput.value =
-        globalSearch.value;
-
-      filterCatalogue();
-
-      searchModal.classList.remove(
-        "open"
-      );
-
-      document
-        .getElementById("catalogue")
-        .scrollIntoView({
-          behavior:"smooth"
-        });
-
-    }
-
-  }
-);
+});
 
 
 /* =====================================================
    CUSTOM COLOUR
 ===================================================== */
 
-const swatches =
-  document.querySelectorAll(".swatch");
-
-const selectedColour =
-  document.getElementById("selectedColour");
+let selectedColor =
+"Ivory";
 
 
-swatches.forEach(
-  swatch=>{
+document
+.querySelectorAll(".color")
+.forEach(
+function(button){
 
-    swatch.addEventListener(
-      "click",
-      ()=>{
+  button.onclick =
+  function(){
 
-        swatches.forEach(
-          s=>s.classList.remove("active")
-        );
-
-        swatch.classList.add("active");
-
-        selectedColour.textContent =
-          swatch.dataset.colour;
-
-      }
+    document
+    .querySelectorAll(".color")
+    .forEach(
+      b=>b.classList.remove("active")
     );
 
-  }
-);
+
+    button.classList.add("active");
+
+
+    selectedColor =
+    button.dataset.color;
+
+
+    document
+    .getElementById("selectedColor")
+    .textContent =
+    selectedColor;
+
+  };
+
+});
 
 
 /* =====================================================
@@ -2816,48 +2779,36 @@ swatches.forEach(
 ===================================================== */
 
 document
-  .getElementById("customForm")
-  .addEventListener(
-    "submit",
-    event=>{
+.getElementById("customForm")
+.addEventListener(
+"submit",
+function(event){
 
-      event.preventDefault();
-
-
-      const name =
-        document.getElementById(
-          "customerName"
-        ).value;
-
-      const phone =
-        document.getElementById(
-          "customerPhone"
-        ).value;
-
-      const city =
-        document.getElementById(
-          "customerCity"
-        ).value;
-
-      const sofaType =
-        document.getElementById(
-          "sofaType"
-        ).value;
-
-      const size =
-        document.getElementById(
-          "sofaSize"
-        ).value;
-
-      const requirements =
-        document.getElementById(
-          "requirements"
-        ).value;
+  event.preventDefault();
 
 
-      const message =
+  const name =
+  document.getElementById("name").value;
 
-`Hi DFH 👋
+  const phone =
+  document.getElementById("phone").value;
+
+  const city =
+  document.getElementById("city").value;
+
+  const sofaType =
+  document.getElementById("sofaType").value;
+
+  const size =
+  document.getElementById("size").value;
+
+  const requirements =
+  document.getElementById("requirements").value;
+
+
+  const message =
+
+`Hi Dream Furniture 👋
 
 I want a custom sofa enquiry.
 
@@ -2871,98 +2822,21 @@ Preferred Size:
 ${size || "Not specified"}
 
 Colour:
-${selectedColour.textContent}
+${selectedColor}
 
 Requirements:
 ${requirements || "Please suggest options."}`;
 
 
-      window.open(
-
-        `https://wa.me/${WHATSAPP}?text=${
-          encodeURIComponent(message)
-        }`,
-
-        "_blank"
-
-      );
-
-    }
+  window.open(
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    encodeURIComponent(message),
+    "_blank"
   );
 
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-const observer =
-  new IntersectionObserver(
-    entries=>{
-
-      entries.forEach(
-        entry=>{
-
-          if(entry.isIntersecting){
-
-            entry.target
-              .classList
-              .add("show");
-
-          }
-
-        }
-      );
-
-    },
-    {
-      threshold:.12
-    }
-  );
-
-
-document
-  .querySelectorAll(".reveal")
-  .forEach(
-    element=>{
-      observer.observe(element);
-    }
-  );
-
-
-/* =====================================================
-   BACK TO TOP
-===================================================== */
-
-const backTop =
-  document.getElementById("backTop");
-
-
-window.addEventListener(
-  "scroll",
-  ()=>{
-
-    if(window.scrollY>600){
-
-      backTop.classList.add("show");
-
-    }else{
-
-      backTop.classList.remove("show");
-
-    }
-
-  }
-);
-
-
-backTop.onclick = () => {
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-};
+});
 
 
 /* =====================================================
@@ -2970,48 +2844,39 @@ backTop.onclick = () => {
 ===================================================== */
 
 const menuButton =
-  document.getElementById("menuButton");
+document.getElementById("menuButton");
 
-const mainNav =
-  document.getElementById("mainNav");
-
-
-menuButton.onclick = () => {
-
-  const opened =
-    mainNav.dataset.open==="true";
+const navLinks =
+document.getElementById("navLinks");
 
 
-  if(opened){
+menuButton.onclick =
+function(){
 
-    mainNav.dataset.open="false";
+  if(navLinks.style.display==="flex"){
 
-    mainNav.style.display="";
+    navLinks.style.display="";
 
   }else{
 
-    mainNav.dataset.open="true";
+    navLinks.style.display="flex";
 
-    mainNav.style.display="flex";
+    navLinks.style.position="absolute";
 
-    mainNav.style.position="absolute";
+    navLinks.style.top="68px";
 
-    mainNav.style.top="67px";
+    navLinks.style.left="0";
 
-    mainNav.style.left="0";
+    navLinks.style.right="0";
 
-    mainNav.style.right="0";
+    navLinks.style.padding="25px";
 
-    mainNav.style.padding="22px";
+    navLinks.style.background="#080808";
 
-    mainNav.style.background=
-      "rgba(8,8,8,.98)";
+    navLinks.style.flexDirection="column";
 
-    mainNav.style.flexDirection=
-      "column";
-
-    mainNav.style.borderBottom=
-      "1px solid rgba(213,166,66,.2)";
+    navLinks.style.borderBottom=
+    "1px solid rgba(213,166,66,.2)";
 
   }
 
@@ -3019,25 +2884,79 @@ menuButton.onclick = () => {
 
 
 /* =====================================================
-   ESCAPE KEY
+   SEARCH BUTTON
 ===================================================== */
 
-document.addEventListener(
-  "keydown",
-  event=>{
+document
+.getElementById("searchButton")
+.onclick =
+function(){
 
-    if(event.key==="Escape"){
+  document
+  .getElementById("search")
+  .focus();
 
-      closeProduct();
+  document
+  .getElementById("catalogue")
+  .scrollIntoView({
+    behavior:"smooth"
+  });
 
-      searchModal.classList.remove(
-        "open"
-      );
+};
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const revealObserver =
+new IntersectionObserver(
+function(entries){
+
+  entries.forEach(
+  function(entry){
+
+    if(entry.isIntersecting){
+
+      entry.target
+      .classList
+      .add("visible");
 
     }
 
+  });
+
+},
+{
+  threshold:.12
+});
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(
+function(element){
+
+  revealObserver.observe(element);
+
+});
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+  if(event.key==="Escape"){
+
+    closeProduct();
+
   }
-);
+
+});
 
 </script>
 
