@@ -1,0 +1,526 @@
+/* =========================
+   SOFA IMAGE PATH
+========================= */
+
+function imagePath(page) {
+
+    if (page <= 100) {
+        return `images_batch_1/images/catalogue-${page}.jpg`;
+    }
+
+    if (page <= 200) {
+        return `catalogue-${page}.jpg`;
+    }
+
+    return `images_batch_3/images/catalogue-${page}.jpg`;
+}
+
+
+/* =========================
+   HERO SLIDER
+========================= */
+
+const heroImages = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7
+];
+
+let heroIndex = 0;
+
+const heroImage =
+    document.getElementById("heroSofa");
+
+const heroNumber =
+    document.querySelector(".hero-number");
+
+
+function changeHero() {
+
+    heroIndex++;
+
+    if (heroIndex >= heroImages.length) {
+        heroIndex = 0;
+    }
+
+    heroImage.style.opacity = "0";
+
+    setTimeout(() => {
+
+        heroImage.src =
+            imagePath(heroImages[heroIndex]);
+
+        heroNumber.innerText =
+            `0${heroIndex + 1} / 06`;
+
+        heroImage.style.opacity = "1";
+
+    }, 350);
+}
+
+
+setInterval(changeHero, 3500);
+
+
+/* =========================
+   FEATURED PRODUCTS
+========================= */
+
+const products =
+    document.getElementById("products");
+
+const featured =
+    [1, 2, 3, 7];
+
+const prices =
+    [
+        "₹34,999",
+        "₹44,999",
+        "₹54,999",
+        "₹69,999"
+    ];
+
+
+featured.forEach((page, index) => {
+
+    const card =
+        document.createElement("div");
+
+    card.className = "product";
+
+    card.innerHTML = `
+
+        <img
+            src="${imagePath(page)}"
+            alt="Dream Furniture Sofa"
+        >
+
+        <div class="product-info">
+
+            <h3>
+                Premium Sofa
+            </h3>
+
+            <p>
+                Starting ${prices[index]}
+            </p>
+
+        </div>
+
+    `;
+
+    card.onclick = () => {
+
+        openProduct(
+            page,
+            prices[index]
+        );
+
+    };
+
+    products.appendChild(card);
+
+});
+
+
+/* =========================
+   ALL 258 SOFAS
+========================= */
+
+const catalogue =
+    document.getElementById(
+        "catalogueGrid"
+    );
+
+
+for (
+    let page = 1;
+    page <= 258;
+    page++
+) {
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "catalogue-card";
+
+    card.dataset.page =
+        page;
+
+    card.innerHTML = `
+
+        <img
+            src="${imagePath(page)}"
+            loading="lazy"
+            alt="Dream Furniture Sofa ${page}"
+        >
+
+        <p>
+            Sofa Design #${page}
+        </p>
+
+    `;
+
+
+    card.onclick = () => {
+
+        openProduct(
+            page,
+            "Price on Enquiry"
+        );
+
+    };
+
+
+    catalogue.appendChild(card);
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+const search =
+    document.getElementById(
+        "search"
+    );
+
+
+search.addEventListener(
+    "input",
+    function () {
+
+        const value =
+            this.value
+                .toLowerCase()
+                .trim();
+
+
+        document
+            .querySelectorAll(
+                ".catalogue-card"
+            )
+            .forEach(card => {
+
+                const page =
+                    card.dataset.page;
+
+                card.style.display =
+                    page.includes(value)
+                        ? ""
+                        : "none";
+
+            });
+
+    }
+);
+
+
+/* =========================
+   PRODUCT MODAL
+========================= */
+
+const modal =
+    document.getElementById(
+        "productModal"
+    );
+
+const modalImage =
+    document.getElementById(
+        "modalImage"
+    );
+
+const modalTitle =
+    document.getElementById(
+        "modalTitle"
+    );
+
+const modalPrice =
+    document.getElementById(
+        "modalPrice"
+    );
+
+const modalWhatsApp =
+    document.getElementById(
+        "modalWhatsApp"
+    );
+
+
+let currentPage = 1;
+
+
+function openProduct(
+    page,
+    price
+) {
+
+    currentPage = page;
+
+    modalImage.src =
+        imagePath(page);
+
+    modalTitle.innerText =
+        `Premium Sofa #${page}`;
+
+    modalPrice.innerText =
+        price;
+
+    modalWhatsApp.href =
+        `https://wa.me/918218364238?text=` +
+        encodeURIComponent(
+            `Hi Dream Furniture, I am interested in Sofa Design #${page}. Please share price, dimensions, colours and availability.`
+        );
+
+
+    modal.classList.add(
+        "active"
+    );
+
+}
+
+
+/* CLOSE MODAL */
+
+document
+    .getElementById("closeModal")
+    .onclick = () => {
+
+        modal.classList.remove(
+            "active"
+        );
+
+    };
+
+
+modal.onclick = event => {
+
+    if (
+        event.target === modal
+    ) {
+
+        modal.classList.remove(
+            "active"
+        );
+
+    }
+
+};
+
+
+/* =========================
+   VIEW BUTTON ANIMATION
+========================= */
+
+document
+    .querySelectorAll(
+        ".view-buttons button"
+    )
+    .forEach(button => {
+
+        button.onclick = () => {
+
+            modalImage.animate(
+
+                [
+                    {
+                        opacity: 0,
+                        transform:
+                            "scale(.92)"
+                    },
+
+                    {
+                        opacity: 1,
+                        transform:
+                            "scale(1)"
+                    }
+                ],
+
+                {
+                    duration: 400
+                }
+
+            );
+
+        };
+
+    });
+
+
+/* =========================
+   CUSTOM COLOURS
+========================= */
+
+let selectedColor =
+    "Black";
+
+
+const colorMap = {
+
+    Black: "#111",
+
+    Cream: "#eee5d0",
+
+    Brown: "#684126",
+
+    Grey: "#777",
+
+    Blue: "#273c5b",
+
+    Green: "#355548",
+
+    Pink: "#c98391",
+
+    Gold: "#c9a03d"
+
+};
+
+
+const preview =
+    document.getElementById(
+        "sofaPreview"
+    );
+
+
+const selected =
+    document.getElementById(
+        "selectedColor"
+    );
+
+
+document
+    .querySelectorAll(".color")
+    .forEach(button => {
+
+        button.onclick = () => {
+
+            document
+                .querySelectorAll(".color")
+                .forEach(
+                    b =>
+                        b.classList.remove(
+                            "active"
+                        )
+                );
+
+
+            button.classList.add(
+                "active"
+            );
+
+
+            selectedColor =
+                button.dataset.color;
+
+
+            selected.innerText =
+                selectedColor;
+
+
+            preview.style.background =
+                `linear-gradient(
+                    135deg,
+                    ${colorMap[selectedColor]},
+                    #080808
+                )`;
+
+
+            preview.animate(
+
+                [
+                    {
+                        transform:
+                            "scale(.95)",
+                        opacity: .4
+                    },
+
+                    {
+                        transform:
+                            "scale(1)",
+                        opacity: 1
+                    }
+                ],
+
+                {
+                    duration: 450
+                }
+
+            );
+
+        };
+
+    });
+
+
+/* =========================
+   CUSTOM WHATSAPP
+========================= */
+
+document
+    .getElementById("sendCustom")
+    .onclick = () => {
+
+        const name =
+            document.getElementById(
+                "customerName"
+            ).value;
+
+        const phone =
+            document.getElementById(
+                "customerPhone"
+            ).value;
+
+        const city =
+            document.getElementById(
+                "customerCity"
+            ).value;
+
+        const size =
+            document.getElementById(
+                "sofaSize"
+            ).value;
+
+        const message =
+            document.getElementById(
+                "customMessage"
+            ).value;
+
+
+        const text = `
+
+Hi Dream Furniture Handicraft,
+
+I want to create a custom sofa.
+
+Name: ${name}
+
+Phone: ${phone}
+
+City: ${city}
+
+Size: ${size}
+
+Colour: ${selectedColor}
+
+Requirements:
+${message}
+
+Please share price and details.
+
+        `;
+
+
+        window.open(
+
+            "https://wa.me/918218364238?text=" +
+            encodeURIComponent(text),
+
+            "_blank"
+
+        );
+
+    };
