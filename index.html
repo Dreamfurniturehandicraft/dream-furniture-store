@@ -1,466 +1,2090 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>
-        Dream Furniture Handicraft | Premium Sofas
-    </title>
-
-    <meta name="description"
-          content="Dream Furniture Handicraft - Premium luxury sofas, custom furniture and modern sofa designs.">
-
-    <style>
-
-        /* =========================
-           GLOBAL
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f7f5f0;
-            color: #171717;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-
-            background: rgba(10,10,10,0.95);
-            border-bottom: 1px solid #b88a25;
-        }
-
-        .navbar {
-            max-width: 1250px;
-            margin: auto;
-
-            height: 78px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 0 25px;
-        }
-
-        .logo img {
-            width: 220px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-        }
-
-        .nav-links a {
-            color: white;
-            font-size: 14px;
-            font-weight: 600;
-
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #e4b73d;
-        }
-
-        .whatsapp-btn {
-            background: #e4b73d;
-            color: #111;
-
-            padding: 11px 17px;
-            border-radius: 8px;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .whatsapp-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(228,183,61,0.3);
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 750px;
-            padding-top: 78px;
-
-            background:
-                radial-gradient(
-                    circle at 80% 50%,
-                    rgba(210,160,45,0.18),
-                    transparent 35%
-                ),
-                #090909;
-
-            color: white;
-
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-container {
-            max-width: 1250px;
-            width: 92%;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .hero-content small {
-            color: #e4b73d;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .hero-content h1 {
-            font-family: Georgia, serif;
-            font-size: clamp(45px, 6vw, 78px);
-            line-height: 1;
-
-            margin: 20px 0;
-        }
-
-        .hero-content h1 span {
-            color: #e4b73d;
-        }
-
-        .hero-content p {
-            color: #c9c9c9;
-            line-height: 1.8;
-            max-width: 570px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .btn {
-            padding: 15px 22px;
-            border-radius: 9px;
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .btn-gold {
-            background: #e4b73d;
-            color: #111;
-        }
-
-        .btn-outline {
-            border: 1px solid #e4b73d;
-            color: white;
-        }
-
-        .btn:hover {
-            transform: translateY(-4px);
-        }
-
-        .hero-sofa {
-            height: 380px;
-
-            border-radius: 30px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #eee2cd,
-                    #8d795d
-                );
-
-            box-shadow:
-                0 40px 80px rgba(0,0,0,0.5);
-
-            animation: floating 4s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-
-            0%,100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-12px);
-            }
-        }
-
-        /* =========================
-           PRODUCTS
-        ========================= */
-
-        .products {
-            max-width: 1250px;
-            width: 92%;
-            margin: auto;
-
-            padding: 90px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title small {
-            color: #a87918;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-
-        .section-title h2 {
-            font-family: Georgia, serif;
-            font-size: 45px;
-            margin-top: 10px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 20px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-
-            box-shadow:
-                0 10px 35px rgba(0,0,0,0.08);
-
-            transition: 0.4s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow:
-                0 25px 50px rgba(0,0,0,0.15);
-        }
-
-        .product-image {
-            height: 240px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #e9dfcf,
-                    #a89579
-                );
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .product-image::after {
-            content: "SOFA";
-            color: rgba(0,0,0,0.15);
-            font-size: 45px;
-            font-weight: bold;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-info h3 {
-            font-family: Georgia, serif;
-            font-size: 21px;
-        }
-
-        .product-info p {
-            color: #777;
-            font-size: 13px;
-            line-height: 1.6;
-            margin: 8px 0;
-        }
-
-        .price {
-            color: #9a650d;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .order-btn {
-            width: 100%;
-            margin-top: 14px;
-
-            padding: 12px;
-
-            border: 0;
-            border-radius: 8px;
-
-            background: #e4b73d;
-            color: #111;
-
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .order-btn:hover {
-            background: #c99520;
-        }
-
-        /* =========================
-           CATALOGUE
-        ========================= */
-
-        .catalogue {
-            background: #0b0b0b;
-            color: white;
-
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .catalogue h2 {
-            font-family: Georgia, serif;
-            font-size: 42px;
-        }
-
-        .catalogue p {
-            color: #aaa;
-            margin: 15px auto 25px;
-            max-width: 650px;
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            padding: 90px 20px;
-            background: #f5f1e8;
-        }
-
-        .contact-box {
-            max-width: 900px;
-            margin: auto;
-
-            text-align: center;
-        }
-
-        .contact-box h2 {
-            font-family: Georgia, serif;
-            font-size: 45px;
-        }
-
-        .contact-box p {
-            margin: 15px 0 25px;
-            color: #666;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #070707;
-            color: #aaa;
-
-            padding: 30px;
-            text-align: center;
-        }
-
-        footer strong {
-            color: #e4b73d;
-        }
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media(max-width:900px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-sofa {
-                display: none;
-            }
-
-            .product-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-        }
-
-        @media(max-width:600px) {
-
-            .logo img {
-                width: 170px;
-            }
-
-            .hero {
-                min-height: 680px;
-            }
-
-            .hero-content h1 {
-                font-size: 45px;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title h2 {
-                font-size: 35px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>DFH | Dream Furniture Handicraft</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --black:#080909;
+ --dark:#111315;
+ --gold:#e3b63f;
+ --gold2:#f6d46d;
+ --cream:#f7f3ea;
+ --white:#fff;
+ --gray:#777;
+}
+
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+html{
+ scroll-behavior:smooth;
+}
+
+body{
+ font-family:"DM Sans",Arial,sans-serif;
+ color:#171717;
+ background:#fff;
+ overflow-x:hidden;
+}
+
+a{
+ text-decoration:none;
+ color:inherit;
+}
+
+button,input,textarea{
+ font:inherit;
+}
+
+.container{
+ width:min(1240px,92%);
+ margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+ position:fixed;
+ top:0;
+ left:0;
+ right:0;
+ z-index:1000;
+ background:rgba(7,8,8,.95);
+ backdrop-filter:blur(15px);
+ border-bottom:1px solid #76591e;
+}
+
+.nav{
+ height:78px;
+ display:flex;
+ align-items:center;
+ gap:25px;
+}
+
+.logo img{
+ width:230px;
+ height:62px;
+ object-fit:contain;
+}
+
+.navlinks{
+ display:flex;
+ gap:25px;
+ margin-left:auto;
+}
+
+.navlinks a{
+ color:#fff;
+ font-size:14px;
+ font-weight:700;
+ transition:.3s;
+}
+
+.navlinks a:hover{
+ color:var(--gold2);
+}
+
+.nav-actions{
+ display:flex;
+ gap:8px;
+}
+
+.nav-btn{
+ border:1px solid #444;
+ background:#181a1b;
+ color:#fff;
+ padding:10px 13px;
+ border-radius:9px;
+ cursor:pointer;
+}
+
+.whatsapp{
+ background:#138b4b;
+ border-color:#138b4b;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+ padding-top:78px;
+ min-height:760px;
+ position:relative;
+ color:#fff;
+
+ background:
+ linear-gradient(
+ 90deg,
+ rgba(0,0,0,.93),
+ rgba(0,0,0,.58),
+ rgba(0,0,0,.25)
+ ),
+ url("https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2200&q=90")
+ center/cover;
+}
+
+.hero-inner{
+ min-height:680px;
+ display:flex;
+ align-items:center;
+ position:relative;
+ z-index:2;
+}
+
+.hero-content{
+ max-width:700px;
+}
+
+.eyebrow{
+ color:#ddd;
+ font-size:12px;
+ letter-spacing:3px;
+ text-transform:uppercase;
+}
+
+.hero h1{
+ font-family:"Playfair Display",serif;
+ font-size:clamp(45px,6vw,80px);
+ line-height:1;
+ margin:18px 0;
+}
+
+.hero h1 span{
+ color:var(--gold2);
+}
+
+.hero p{
+ max-width:620px;
+ color:#ddd;
+ line-height:1.8;
+}
+
+.buttons{
+ display:flex;
+ gap:12px;
+ margin-top:28px;
+ flex-wrap:wrap;
+}
+
+.btn{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ padding:14px 20px;
+ border-radius:10px;
+ font-weight:800;
+ border:0;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.btn:hover{
+ transform:translateY(-4px);
+ box-shadow:0 12px 30px rgba(227,182,63,.2);
+}
+
+.gold{
+ background:var(--gold);
+ color:#111;
+}
+
+.outline{
+ border:1px solid var(--gold);
+ color:#fff;
+ background:transparent;
+}
+
+.trust{
+ position:absolute;
+ left:0;
+ right:0;
+ bottom:28px;
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:15px;
+}
+
+.trust-item{
+ display:flex;
+ gap:10px;
+ color:#fff;
+}
+
+.trust-item b{
+ display:block;
+ font-size:13px;
+}
+
+.trust-item small{
+ color:#aaa;
+}
+
+/* ================= CATEGORIES ================= */
+
+.categories{
+ background:var(--cream);
+ padding:25px 0;
+}
+
+.catgrid{
+ display:grid;
+ grid-template-columns:repeat(7,1fr);
+ background:#fff;
+ border-radius:15px;
+ overflow:hidden;
+ box-shadow:0 15px 40px rgba(0,0,0,.1);
+}
+
+.cat{
+ padding:18px 7px;
+ text-align:center;
+ border-right:1px solid #eee;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.cat:hover,
+.cat.active{
+ background:#fff8df;
+ box-shadow:inset 0 -3px var(--gold);
+}
+
+.cat .icon{
+ font-size:28px;
+ margin-bottom:7px;
+}
+
+.cat b{
+ display:block;
+ font-size:13px;
+}
+
+.cat small{
+ color:#888;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+ padding:90px 0;
+}
+
+.heading{
+ text-align:center;
+ margin-bottom:35px;
+}
+
+.heading small{
+ color:#a87918;
+ font-weight:800;
+ letter-spacing:2px;
+}
+
+.heading h2{
+ font-family:"Playfair Display",serif;
+ font-size:45px;
+ margin:8px 0;
+}
+
+.heading p{
+ color:#777;
+}
+
+.search{
+ max-width:500px;
+ margin:0 auto 30px;
+ display:flex;
+ border:1px solid #ddd;
+ border-radius:10px;
+ overflow:hidden;
+}
+
+.search input{
+ flex:1;
+ padding:13px;
+ border:0;
+ outline:0;
+}
+
+.search button{
+ width:55px;
+ border:0;
+ background:#111;
+ color:#fff;
+ cursor:pointer;
+}
+
+.product-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:20px;
+}
+
+.product{
+ background:#fff;
+ border:1px solid #eee;
+ border-radius:17px;
+ overflow:hidden;
+ box-shadow:0 8px 30px rgba(0,0,0,.07);
+ transition:.4s;
+}
+
+.product:hover{
+ transform:translateY(-9px);
+ box-shadow:0 25px 50px rgba(0,0,0,.15);
+}
+
+.product-preview{
+ height:245px;
+ background:#eee;
+ position:relative;
+ overflow:hidden;
+}
+
+.product-preview canvas{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+.badge{
+ position:absolute;
+ top:12px;
+ left:12px;
+ background:#111;
+ color:#fff;
+ padding:6px 10px;
+ border-radius:20px;
+ font-size:10px;
+ font-weight:800;
+ z-index:5;
+}
+
+.heart{
+ position:absolute;
+ right:12px;
+ top:12px;
+ width:37px;
+ height:37px;
+ border:0;
+ border-radius:50%;
+ background:#fff;
+ cursor:pointer;
+ z-index:5;
+ font-size:18px;
+}
+
+.product-info{
+ padding:18px;
+}
+
+.product-info h3{
+ font-family:"Playfair Display",serif;
+ font-size:20px;
+}
+
+.product-info p{
+ color:#777;
+ font-size:13px;
+ line-height:1.6;
+ margin:7px 0;
+}
+
+.product-bottom{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:8px;
+ margin-top:13px;
+}
+
+.price{
+ color:#985f0a;
+ font-size:21px;
+ font-weight:800;
+}
+
+.add{
+ border:0;
+ background:var(--gold);
+ padding:10px 13px;
+ border-radius:8px;
+ font-weight:800;
+ cursor:pointer;
+}
+
+/* ================= PDF CATALOGUE ================= */
+
+.catalogue{
+ padding:85px 0;
+ background:#0b0c0d;
+ color:#fff;
+}
+
+.catalogue-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:end;
+ gap:25px;
+ margin-bottom:30px;
+}
+
+.catalogue h2{
+ font-family:"Playfair Display",serif;
+ font-size:45px;
+}
+
+.catalogue p{
+ color:#aaa;
+ line-height:1.7;
+ margin-top:10px;
+}
+
+.pdf-buttons{
+ display:flex;
+ gap:10px;
+ flex-wrap:wrap;
+}
+
+.pdf-gallery{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:16px;
+}
+
+.pdf-card{
+ background:#17191b;
+ border:1px solid #302817;
+ border-radius:12px;
+ overflow:hidden;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.pdf-card:hover{
+ transform:translateY(-7px);
+ border-color:var(--gold);
+}
+
+.pdf-card canvas{
+ width:100%;
+ height:230px;
+ background:#eee;
+}
+
+.pdf-label{
+ padding:10px;
+ color:#ccc;
+ font-size:12px;
+}
+
+.load-more{
+ display:block;
+ margin:30px auto;
+}
+
+.full-pdf{
+ margin-top:40px;
+}
+
+.full-pdf iframe{
+ width:100%;
+ height:650px;
+ border:0;
+ border-radius:12px;
+ background:#fff;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+ padding:90px 0;
+ background:var(--cream);
+}
+
+.about-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:40px;
+ align-items:center;
+}
+
+.about-box{
+ background:#111;
+ color:#fff;
+ border-radius:22px;
+ padding:42px;
+}
+
+.about-box h2{
+ font-family:"Playfair Display",serif;
+ font-size:43px;
+}
+
+.about-box p{
+ color:#bbb;
+ line-height:1.8;
+ margin:15px 0;
+}
+
+.features{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:15px;
+}
+
+.feature{
+ background:#fff;
+ padding:24px;
+ border-radius:15px;
+ border:1px solid #e7dfd0;
+}
+
+.feature h3{
+ font-family:"Playfair Display",serif;
+ font-size:20px;
+}
+
+.feature p{
+ color:#777;
+ font-size:13px;
+ line-height:1.6;
+ margin-top:7px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+ padding:90px 0;
+ background:#090a0b;
+ color:#fff;
+}
+
+.contact-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:45px;
+}
+
+.contact h2{
+ font-family:"Playfair Display",serif;
+ font-size:44px;
+}
+
+.contact p{
+ color:#aaa;
+ line-height:1.8;
+ margin:12px 0;
+}
+
+.contact-card{
+ background:#fff;
+ color:#111;
+ border-radius:18px;
+ padding:28px;
+}
+
+.contact-card input,
+.contact-card textarea{
+ width:100%;
+ padding:13px;
+ border:1px solid #ddd;
+ border-radius:9px;
+ margin-bottom:11px;
+ outline:0;
+}
+
+.contact-card textarea{
+ min-height:110px;
+ resize:vertical;
+}
+
+/* ================= CART ================= */
+
+.overlay{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.6);
+ z-index:1998;
+ display:none;
+}
+
+.overlay.show{
+ display:block;
+}
+
+.cart{
+ position:fixed;
+ right:-420px;
+ top:0;
+ width:min(400px,94vw);
+ height:100vh;
+ background:#fff;
+ z-index:1999;
+ padding:24px;
+ transition:.4s;
+ display:flex;
+ flex-direction:column;
+}
+
+.cart.show{
+ right:0;
+}
+
+.cart-head{
+ display:flex;
+ justify-content:space-between;
+ border-bottom:1px solid #ddd;
+ padding-bottom:15px;
+}
+
+.cart-items{
+ flex:1;
+ overflow:auto;
+ padding:15px 0;
+}
+
+.cart-item{
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ border-bottom:1px solid #eee;
+ padding:12px 0;
+}
+
+.checkout{
+ width:100%;
+ border:0;
+ background:var(--gold);
+ padding:14px;
+ border-radius:9px;
+ font-weight:800;
+ cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+ background:#050505;
+ color:#aaa;
+ text-align:center;
+ padding:28px;
+}
+
+footer b{
+ color:var(--gold2);
+}
+
+/* ================= ANIMATION ================= */
+
+.reveal{
+ opacity:0;
+ transform:translateY(35px);
+ transition:.8s ease;
+}
+
+.reveal.show{
+ opacity:1;
+ transform:translateY(0);
+}
+
+.float{
+ animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-10px)}
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1000px){
+
+ .navlinks{
+  display:none;
+ }
+
+ .product-grid{
+  grid-template-columns:repeat(2,1fr);
+ }
+
+ .catgrid{
+  grid-template-columns:repeat(4,1fr);
+ }
+
+ .pdf-gallery{
+  grid-template-columns:repeat(3,1fr);
+ }
+
+ .about-grid,
+ .contact-grid{
+  grid-template-columns:1fr;
+ }
+}
+
+@media(max-width:600px){
+
+ .nav{
+  height:68px;
+ }
+
+ .logo img{
+  width:175px;
+ }
+
+ .hero{
+  padding-top:68px;
+  min-height:710px;
+ }
+
+ .hero-inner{
+  min-height:630px;
+ }
+
+ .hero h1{
+  font-size:45px;
+ }
+
+ .trust{
+  grid-template-columns:repeat(2,1fr);
+  bottom:12px;
+ }
+
+ .catgrid{
+  grid-template-columns:repeat(2,1fr);
+ }
+
+ .product-grid{
+  grid-template-columns:1fr;
+ }
+
+ .pdf-gallery{
+  grid-template-columns:1fr 1fr;
+ }
+
+ .heading h2,
+ .catalogue h2,
+ .contact h2,
+ .about-box h2{
+  font-size:35px;
+ }
+
+ .features{
+  grid-template-columns:1fr;
+ }
+
+ .full-pdf iframe{
+  height:500px;
+ }
+}
+</style>
 </head>
 
 <body>
 
-<!-- WEBSITE CONTENT HERE -->
+<!-- ================= HEADER ================= -->
+
+<header>
+<div class="container nav">
+
+<a class="logo" href="#home">
+<img src="dfh-logo.png" alt="Dream Furniture Handicraft">
+</a>
+
+<nav class="navlinks">
+<a href="#home">Home</a>
+<a href="#sofas">Sofas</a>
+<a href="#catalogue">Catalogue</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="nav-actions">
+<a class="nav-btn whatsapp"
+href="https://wa.me/918218364238"
+target="_blank">
+WhatsApp
+</a>
+
+<button class="nav-btn" onclick="openCart()">
+🛒 <span id="cartCount">0</span>
+</button>
+</div>
+
+</div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="container hero-inner">
+
+<div class="hero-content reveal show">
+
+<div class="eyebrow">
+PREMIUM QUALITY • MODERN DESIGNS • HANDCRAFTED SOFAS
+</div>
+
+<h1>
+Luxury <span>Sofas</span> For<br>
+Dream Homes
+</h1>
+
+<p>
+Discover premium, stylish and comfortable sofas by
+Dream Furniture Handicraft. Browse our complete
+sofa catalogue and contact us for custom designs.
+</p>
+
+<div class="buttons">
+
+<a class="btn gold" href="#sofas">
+Explore Collection →
+</a>
+
+<a class="btn outline" href="#catalogue">
+View Catalogue
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="container trust">
+
+<div class="trust-item">
+🚚
+<div>
+<b>Pan India Delivery</b>
+<small>Ask for availability</small>
+</div>
+</div>
+
+<div class="trust-item">
+🛡️
+<div>
+<b>Premium Quality</b>
+<small>Durable designs</small>
+</div>
+</div>
+
+<div class="trust-item">
+🛋️
+<div>
+<b>Custom Designs</b>
+<small>Sizes & fabrics</small>
+</div>
+</div>
+
+<div class="trust-item">
+⭐
+<div>
+<b>Customer First</b>
+<small>Direct support</small>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories">
+
+<div class="container catgrid">
+
+<div class="cat active" data-filter="all">
+<div class="icon">🛋️</div>
+<b>All Sofas</b>
+<small>View all</small>
+</div>
+
+<div class="cat" data-filter="2">
+<div class="icon">🪑</div>
+<b>2 Seater</b>
+<small>Compact</small>
+</div>
+
+<div class="cat" data-filter="3">
+<div class="icon">🛋️</div>
+<b>3 Seater</b>
+<small>Living room</small>
+</div>
+
+<div class="cat" data-filter="5">
+<div class="icon">🛋️</div>
+<b>5 Seater</b>
+<small>Spacious</small>
+</div>
+
+<div class="cat" data-filter="l">
+<div class="icon">◼️</div>
+<b>L Shape</b>
+<small>Modern</small>
+</div>
+
+<div class="cat" data-filter="luxury">
+<div class="icon">💎</div>
+<b>Luxury</b>
+<small>Premium</small>
+</div>
+
+<div class="cat" data-filter="custom">
+<div class="icon">✏️</div>
+<b>Custom</b>
+<small>Made for you</small>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SOFAS ================= -->
+
+<section class="products" id="sofas">
+
+<div class="container">
+
+<div class="heading reveal">
+
+<small>OUR COLLECTION</small>
+
+<h2>
+Premium Sofa Designs
+</h2>
+
+<p>
+Selected designs from Dream Furniture Handicraft.
+</p>
+
+</div>
+
+
+<div class="search">
+
+<input
+id="search"
+placeholder="Search sofas..."
+>
+
+<button>
+⌕
+</button>
+
+</div>
+
+
+<div class="product-grid">
+
+
+<!-- PRODUCT 1 -->
+
+<article
+class="product reveal"
+data-cat="3 luxury"
+data-name="Luxury 3 Seater Sofa"
+data-page="1"
+>
+
+<div class="product-preview">
+
+<span class="badge">
+BEST SELLER
+</span>
+
+<button
+class="heart"
+onclick="heart(this)"
+>
+♡
+</button>
+
+<canvas></canvas>
+
+</div>
+
+<div class="product-info">
+
+<h3>
+Luxury 3 Seater Sofa
+</h3>
+
+<p>
+Premium sofa design from the DFH catalogue.
+</p>
+
+<div class="product-bottom">
+
+<span class="price">
+₹29,999
+</span>
+
+<button
+class="add"
+onclick="addCart('Luxury 3 Seater Sofa',29999)"
+>
+Add
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- PRODUCT 2 -->
+
+<article
+class="product reveal"
+data-cat="3 luxury"
+data-name="Premium Velvet Sofa"
+data-page="2"
+>
+
+<div class="product-preview">
+
+<span class="badge">
+PREMIUM
+</span>
+
+<button
+class="heart"
+onclick="heart(this)"
+>
+♡
+</button>
+
+<canvas></canvas>
+
+</div>
+
+<div class="product-info">
+
+<h3>
+Premium Velvet Sofa
+</h3>
+
+<p>
+Luxury sofa design from the DFH catalogue.
+</p>
+
+<div class="product-bottom">
+
+<span class="price">
+₹34,999
+</span>
+
+<button
+class="add"
+onclick="addCart('Premium Velvet Sofa',34999)"
+>
+Add
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- PRODUCT 3 -->
+
+<article
+class="product reveal"
+data-cat="l custom luxury"
+data-name="Modern L Shape Sofa"
+data-page="3"
+>
+
+<div class="product-preview">
+
+<span class="badge">
+NEW
+</span>
+
+<button
+class="heart"
+onclick="heart(this)"
+>
+♡
+</button>
+
+<canvas></canvas>
+
+</div>
+
+<div class="product-info">
+
+<h3>
+Modern L-Shape Sofa
+</h3>
+
+<p>
+Spacious modern sofa design.
+</p>
+
+<div class="product-bottom">
+
+<span class="price">
+₹42,999
+</span>
+
+<button
+class="add"
+onclick="addCart('Modern L-Shape Sofa',42999)"
+>
+Add
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- PRODUCT 4 -->
+
+<article
+class="product reveal"
+data-cat="5 luxury"
+data-name="Royal Sofa Set"
+data-page="4"
+>
+
+<div class="product-preview">
+
+<span class="badge">
+LUXURY
+</span>
+
+<button
+class="heart"
+onclick="heart(this)"
+>
+♡
+</button>
+
+<canvas></canvas>
+
+</div>
+
+<div class="product-info">
+
+<h3>
+Royal Sofa Set
+</h3>
+
+<p>
+Premium statement sofa design.
+</p>
+
+<div class="product-bottom">
+
+<span class="price">
+₹49,999
+</span>
+
+<button
+class="add"
+onclick="addCart('Royal Sofa Set',49999)"
+>
+Add
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PDF CATALOGUE ================= -->
+
+<section class="catalogue" id="catalogue">
+
+<div class="container">
+
+<div class="catalogue-head reveal">
+
+<div>
+
+<small style="color:#e3b63f;letter-spacing:2px">
+YOUR SOFA CATALOGUE
+</small>
+
+<h2>
+Browse Sofa Designs
+</h2>
+
+<p>
+All catalogue pages are rendered directly from your
+DFH sofa PDF.
+</p>
+
+</div>
+
+
+<div class="pdf-buttons">
+
+<a
+class="btn gold"
+href="dfh-sofa-catalogue.pdf"
+target="_blank"
+>
+Open Full PDF ↗
+</a>
+
+<a
+class="btn outline"
+href="dfh-sofa-catalogue.pdf"
+download
+>
+Download PDF ↓
+</a>
+
+</div>
+
+</div>
+
+
+<div
+class="pdf-gallery"
+id="pdfGallery"
+>
+</div>
+
+
+<button
+class="btn gold load-more"
+id="loadMore"
+>
+Load More Sofa Pages
+</button>
+
+
+<div class="full-pdf">
+
+<h3 style="margin-bottom:12px">
+Full Catalogue
+</h3>
+
+<iframe
+src="dfh-sofa-catalogue.pdf#toolbar=1&navpanes=0"
+title="DFH Sofa Catalogue"
+>
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+<div class="container about-grid">
+
+<div class="about-box reveal">
+
+<small style="color:#e3b63f;letter-spacing:2px">
+ABOUT DFH
+</small>
+
+<h2>
+Furniture made for dream homes.
+</h2>
+
+<p>
+Dream Furniture Handicraft offers premium sofa
+designs, custom options and direct customer support.
+</p>
+
+<a
+class="btn gold"
+href="#contact"
+>
+Talk to DFH →
+</a>
+
+</div>
+
+
+<div class="features reveal">
+
+<div class="feature">
+<h3>
+Custom Sizes
+</h3>
+
+<p>
+Ask about dimensions for your room.
+</p>
+</div>
+
+<div class="feature">
+<h3>
+Colours & Fabrics
+</h3>
+
+<p>
+Discuss available finishes and fabrics.
+</p>
+</div>
+
+<div class="feature">
+<h3>
+Premium Designs
+</h3>
+
+<p>
+Browse the complete catalogue.
+</p>
+</div>
+
+<div class="feature">
+<h3>
+Direct Support
+</h3>
+
+<p>
+WhatsApp us for product enquiries.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+<div class="container contact-grid">
+
+<div class="reveal">
+
+<small style="color:#e3b63f;letter-spacing:2px">
+CONTACT DFH
+</small>
+
+<h2>
+Let's find the right sofa for your home.
+</h2>
+
+<p>
+📱 +91 82183 64238
+</p>
+
+<p>
+📧 dreamfurniturehandicarft@gmail.com
+</p>
+
+<a
+class="btn gold"
+href="https://wa.me/918218364238"
+target="_blank"
+>
+Chat on WhatsApp →
+</a>
+
+</div>
+
+
+<div class="contact-card reveal">
+
+<h3 style="font-family:'Playfair Display';font-size:28px;margin-bottom:15px">
+Quick Enquiry
+</h3>
+
+<input
+id="name"
+placeholder="Your name"
+>
+
+<input
+id="phone"
+placeholder="Phone / WhatsApp number"
+>
+
+<input
+id="product"
+placeholder="Sofa / product"
+>
+
+<textarea
+id="message"
+placeholder="Your requirement"
+></textarea>
+
+<button
+class="btn gold"
+style="width:100%"
+onclick="sendEnquiry()"
+>
+Send on WhatsApp
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026
+<b>Dream Furniture Handicraft</b>
+· Premium Sofa Collection
+
+</footer>
+
+
+<!-- ================= CART ================= -->
+
+<div
+class="overlay"
+id="overlay"
+onclick="closeCart()"
+>
+</div>
+
+
+<aside
+class="cart"
+id="cart"
+>
+
+<div class="cart-head">
+
+<h3>
+Your Cart
+</h3>
+
+<button
+onclick="closeCart()"
+style="border:0;background:none;font-size:25px;cursor:pointer"
+>
+×
+</button>
+
+</div>
+
+
+<div
+class="cart-items"
+id="cartItems"
+>
+
+<p style="text-align:center;color:#888;padding:40px">
+Cart is empty.
+</p>
+
+</div>
+
+
+<button
+class="checkout"
+onclick="checkout()"
+>
+Order on WhatsApp
+</button>
+
+</aside>
+
+
+<!-- ================= PDF.JS ================= -->
+
+<script type="module">
+
+import * as pdfjsLib from
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs";
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs";
+
+
+const PDF_FILE =
+"dfh-sofa-catalogue.pdf";
+
+let pdf=null;
+let loadedPages=0;
+
+const BATCH=12;
+
+
+/* LOAD PDF */
+
+async function loadPDF(){
+
+ try{
+
+  pdf=await pdfjsLib
+  .getDocument(PDF_FILE)
+  .promise;
+
+  renderProductPages();
+
+  loadMorePages();
+
+ }catch(error){
+
+  console.error(error);
+
+  document.getElementById("pdfGallery").innerHTML=`
+
+  <div style="
+  grid-column:1/-1;
+  padding:30px;
+  text-align:center;
+  background:#181818;
+  border-radius:12px;
+  color:#ffb5b5;
+  ">
+
+  PDF not found.
+
+  <br><br>
+
+  Upload:
+
+  <b>dfh-sofa-catalogue.pdf</b>
+
+  in the same GitHub folder as index.html.
+
+  </div>
+
+  `;
+
+ }
+
+}
+
+
+/* RENDER PDF PAGE */
+
+async function renderPage(
+ pageNumber,
+ canvas,
+ scale=.65
+){
+
+ const page=
+ await pdf.getPage(pageNumber);
+
+ const viewport=
+ page.getViewport({scale});
+
+ canvas.width=
+ viewport.width;
+
+ canvas.height=
+ viewport.height;
+
+ await page.render({
+
+  canvasContext:
+  canvas.getContext("2d"),
+
+  viewport:viewport
+
+ }).promise;
+
+}
+
+
+/* PRODUCT IMAGES FROM PDF */
+
+async function renderProductPages(){
+
+ if(!pdf)return;
+
+ document
+ .querySelectorAll(".product")
+ .forEach(card=>{
+
+  const pageNumber=
+  Number(card.dataset.page);
+
+  if(pageNumber<=pdf.numPages){
+
+   renderPage(
+    pageNumber,
+    card.querySelector("canvas"),
+    .65
+   );
+
+  }
+
+ });
+
+}
+
+
+/* PDF GALLERY */
+
+async function loadMorePages(){
+
+ if(!pdf)return;
+
+ const gallery=
+ document.getElementById("pdfGallery");
+
+ const end=
+ Math.min(
+  loadedPages+BATCH,
+  pdf.numPages
+ );
+
+ for(
+  let page=loadedPages+1;
+  page<=end;
+  page++
+ ){
+
+  const box=
+  document.createElement("div");
+
+  box.className=
+  "pdf-card";
+
+  box.innerHTML=`
+
+  <canvas></canvas>
+
+  <div class="pdf-label">
+  Catalogue Page ${page}
+  </div>
+
+  `;
+
+  box.onclick=()=>{
+
+   window.open(
+   PDF_FILE+
+   "#page="+page+
+   "&toolbar=1",
+   "_blank"
+   );
+
+  };
+
+  gallery.appendChild(box);
+
+  renderPage(
+   page,
+   box.querySelector("canvas"),
+   .55
+  );
+
+ }
+
+ loadedPages=end;
+
+ if(loadedPages>=pdf.numPages){
+
+  document.getElementById(
+   "loadMore"
+  ).style.display="none";
+
+ }
+
+}
+
+
+document
+.getElementById("loadMore")
+.addEventListener(
+ "click",
+ loadMorePages
+);
+
+
+loadPDF();
+
+
+/* ANIMATION */
+
+const observer=
+new IntersectionObserver(
+ entries=>{
+
+  entries.forEach(entry=>{
+
+   if(entry.isIntersecting){
+
+    entry.target.classList.add("show");
+
+    observer.unobserve(
+     entry.target
+    );
+
+   }
+
+  });
+
+ },
+ {threshold:.1}
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(el=>
+ observer.observe(el)
+);
+
+</script>
+
+
+<!-- ================= WEBSITE JS ================= -->
+
+<script>
+
+let cart=[];
+
+
+/* WISHLIST */
+
+function heart(button){
+
+ if(button.textContent==="♡"){
+
+  button.textContent="♥";
+  button.style.color="#bd8316";
+
+ }else{
+
+  button.textContent="♡";
+  button.style.color="#111";
+
+ }
+
+}
+
+
+/* CART */
+
+function addCart(name,price){
+
+ cart.push({
+  name:name,
+  price:price
+ });
+
+ document.getElementById(
+  "cartCount"
+ ).textContent=cart.length;
+
+ renderCart();
+
+ openCart();
+
+}
+
+
+function renderCart(){
+
+ const box=
+ document.getElementById(
+  "cartItems"
+ );
+
+ if(!cart.length){
+
+  box.innerHTML=`
+  <p style="
+  text-align:center;
+  color:#888;
+  padding:40px
+  ">
+  Cart is empty.
+  </p>
+  `;
+
+  return;
+
+ }
+
+
+ box.innerHTML=
+ cart.map((item,index)=>`
+
+ <div class="cart-item">
+
+  <div>
+
+   <b>
+   ${item.name}
+   </b>
+
+   <br>
+
+   <small>
+   ₹${item.price.toLocaleString("en-IN")}
+   </small>
+
+  </div>
+
+  <button
+  onclick="removeCart(${index})"
+  style="
+  border:0;
+  background:none;
+  cursor:pointer
+  "
+  >
+  ✕
+  </button>
+
+ </div>
+
+ `).join("");
+
+}
+
+
+function removeCart(index){
+
+ cart.splice(index,1);
+
+ document.getElementById(
+  "cartCount"
+ ).textContent=cart.length;
+
+ renderCart();
+
+}
+
+
+function openCart(){
+
+ document
+ .getElementById("cart")
+ .classList.add("show");
+
+ document
+ .getElementById("overlay")
+ .classList.add("show");
+
+}
+
+
+function closeCart(){
+
+ document
+ .getElementById("cart")
+ .classList.remove("show");
+
+ document
+ .getElementById("overlay")
+ .classList.remove("show");
+
+}
+
+
+/* WHATSAPP CHECKOUT */
+
+function checkout(){
+
+ if(!cart.length){
+
+  alert(
+  "Please add a sofa first."
+  );
+
+  return;
+
+ }
+
+ let message=
+ "Hello Dream Furniture Handicraft,%0A%0AI am interested in:%0A";
+
+ cart.forEach(item=>{
+
+  message+=
+  encodeURIComponent(
+   "• "+
+   item.name+
+   " - ₹"+
+   item.price.toLocaleString("en-IN")
+  )+
+  "%0A";
+
+ });
+
+ window.open(
+ "https://wa.me/918218364238?text="+
+ message,
+ "_blank"
+ );
+
+}
+
+
+/* ENQUIRY */
+
+function sendEnquiry(){
+
+ const name=
+ document.getElementById("name").value;
+
+ const phone=
+ document.getElementById("phone").value;
+
+ const product=
+ document.getElementById("product").value;
+
+ const message=
+ document.getElementById("message").value;
+
+
+ const text=
+
+ "Hello Dream Furniture Handicraft,%0A%0A"+
+
+ "Name: "+
+ encodeURIComponent(name)+
+ "%0A"+
+
+ "Phone: "+
+ encodeURIComponent(phone)+
+ "%0A"+
+
+ "Product: "+
+ encodeURIComponent(product)+
+ "%0A"+
+
+ "Requirement: "+
+ encodeURIComponent(message);
+
+
+ window.open(
+ "https://wa.me/918218364238?text="+
+ text,
+ "_blank"
+ );
+
+}
+
+
+/* SEARCH */
+
+document
+.getElementById("search")
+.addEventListener(
+ "input",
+ function(){
+
+  const query=
+  this.value.toLowerCase();
+
+  document
+  .querySelectorAll(".product")
+  .forEach(card=>{
+
+   const name=
+   card.dataset.name.toLowerCase();
+
+   card.style.display=
+   name.includes(query)
+   ? ""
+   : "none";
+
+  });
+
+ }
+);
+
+
+/* CATEGORY FILTER */
+
+document
+.querySelectorAll(".cat")
+.forEach(category=>{
+
+ category.addEventListener(
+ "click",
+ ()=>{
+
+  document
+  .querySelectorAll(".cat")
+  .forEach(c=>
+   c.classList.remove("active")
+  );
+
+  category.classList.add("active");
+
+  const filter=
+  category.dataset.filter;
+
+  document
+  .querySelectorAll(".product")
+  .forEach(card=>{
+
+   if(filter==="all"){
+
+    card.style.display="";
+
+   }else{
+
+    const categories=
+    card.dataset.cat.split(" ");
+
+    card.style.display=
+    categories.includes(filter)
+    ? ""
+    : "none";
+
+   }
+
+  });
+
+
+  document
+  .getElementById("sofas")
+  .scrollIntoView({
+   behavior:"smooth"
+  });
+
+ }
+});
+
+</script>
 
 </body>
 </html>
