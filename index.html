@@ -37,7 +37,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(7,8,8,.9
 <div class="overlay" id="overlay" onclick="closeCart()"></div><aside class="cart" id="cart"><div class="carthead"><h3>Your Cart</h3><button onclick="closeCart()" style="border:0;background:none;font-size:25px;cursor:pointer">×</button></div><div class="cartitems" id="cartItems"><p style="text-align:center;color:#888;padding:40px">Cart is empty.</p></div><button class="checkout" onclick="checkout()">Order on WhatsApp</button></aside>
 <script>
 const TOTAL_PAGES=258;let shown=0,cart=[];
-function imagePath(i){
+src="${imagePath(i)}"
   if(i <= 100) return `images_batch_1/images/catalogue-${i}.jpg`;
   if(i <= 200) return `catalogue-${i}.jpg`;
   return `images_batch_3/images/catalogue-${i}.jpg`;
