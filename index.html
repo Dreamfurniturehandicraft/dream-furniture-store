@@ -1,526 +1,3045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dream Furniture Handicraft | Premium Sofas</title>
+
+<meta name="description"
+content="Dream Furniture Handicraft — Premium sofas, custom furniture and handcrafted comfort.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+:root{
+  --black:#080808;
+  --black2:#10100e;
+  --black3:#171511;
+  --gold:#d5a642;
+  --gold2:#f2d17a;
+  --white:#f7f1e6;
+  --muted:#aaa398;
+  --line:rgba(213,166,66,.22);
+  --max:1250px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:"DM Sans",Arial,sans-serif;
+  overflow-x:hidden;
+}
+
 /* =========================
-   SOFA IMAGE PATH
+   BACKGROUND ANIMATION
 ========================= */
 
-function imagePath(page) {
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.035;
+  background-image:
+  radial-gradient(#fff .7px,transparent .7px);
+  background-size:6px 6px;
+  z-index:100;
+}
 
-    if (page <= 100) {
-        return `images_batch_1/images/catalogue-${page}.jpg`;
-    }
+.bg-orb{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(100px);
+  opacity:.12;
+  pointer-events:none;
+  z-index:-1;
+  animation:orbFloat 12s ease-in-out infinite;
+}
 
-    if (page <= 200) {
-        return `catalogue-${page}.jpg`;
-    }
+.orb1{
+  width:400px;
+  height:400px;
+  background:#b27a19;
+  left:-150px;
+  top:15%;
+}
 
-    return `images_batch_3/images/catalogue-${page}.jpg`;
+.orb2{
+  width:350px;
+  height:350px;
+  background:#76501b;
+  right:-130px;
+  top:50%;
+  animation-delay:-4s;
+}
+
+.orb3{
+  width:300px;
+  height:300px;
+  background:#d7a73d;
+  left:40%;
+  bottom:-150px;
+  animation-delay:-7s;
+}
+
+@keyframes orbFloat{
+  50%{
+    transform:translate(35px,-30px) scale(1.08);
+  }
+}
+
+/* =========================
+   OFFER BAR
+========================= */
+
+.offer-bar{
+  height:35px;
+  background:linear-gradient(90deg,#b88729,#e4bd5c,#b88729);
+  color:#080808;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:25px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.14em;
+  position:relative;
+  z-index:50;
+}
+
+.offer-bar a{
+  color:#080808;
+  text-decoration:underline;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  height:78px;
+  position:sticky;
+  top:0;
+  z-index:40;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 max(20px,calc((100vw - var(--max))/2));
+
+  background:rgba(8,8,8,.82);
+  backdrop-filter:blur(18px);
+
+  border-bottom:1px solid var(--line);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:white;
+  text-decoration:none;
+}
+
+.logo img{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1px solid rgba(213,166,66,.7);
+}
+
+.logo b{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:15px;
+}
+
+.logo small{
+  display:block;
+  color:var(--gold2);
+  font-size:8px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+}
+
+nav{
+  display:flex;
+  gap:25px;
+}
+
+nav a{
+  color:#bbb5aa;
+  text-decoration:none;
+  font-size:12px;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:0;
+  height:1px;
+  background:var(--gold2);
+  transition:.3s;
+}
+
+nav a:hover{
+  color:white;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.header-right{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.search-btn,
+.menu-btn{
+  width:39px;
+  height:39px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:#111;
+  color:white;
+  cursor:pointer;
+}
+
+.menu-btn{
+  display:none;
+}
+
+.gold-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:14px 21px;
+
+  background:linear-gradient(
+    110deg,
+    var(--gold),
+    #f4d477,
+    var(--gold)
+  );
+
+  background-size:200% 100%;
+
+  color:#090909;
+  text-decoration:none;
+
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+
+  border:0;
+  cursor:pointer;
+
+  transition:.35s;
+}
+
+.gold-btn:hover{
+  background-position:100% 0;
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(213,166,66,.2);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  height:min(830px,calc(100vh - 113px));
+  min-height:650px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-slides{
+  position:absolute;
+  inset:0;
+}
+
+.hero-slide{
+  position:absolute;
+  inset:0;
+
+  opacity:0;
+  transform:scale(1.08);
+
+  transition:
+    opacity .9s ease,
+    transform 4s ease;
+}
+
+.hero-slide.active{
+  opacity:1;
+  transform:scale(1);
+}
+
+.hero-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    90deg,
+    rgba(0,0,0,.86),
+    rgba(0,0,0,.45) 42%,
+    rgba(0,0,0,.08)
+  ),
+  linear-gradient(
+    0deg,
+    rgba(0,0,0,.72),
+    transparent 55%
+  );
+}
+
+.hero-content{
+  position:absolute;
+  z-index:5;
+
+  left:max(20px,calc((100vw - var(--max))/2));
+  top:50%;
+
+  transform:translateY(-45%);
+
+  max-width:620px;
+
+  animation:heroEnter 1.2s ease;
+}
+
+@keyframes heroEnter{
+  from{
+    opacity:0;
+    transform:translateY(-35%) translateX(-30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(-45%) translateX(0);
+  }
+}
+
+.eyebrow{
+  color:var(--gold2);
+  font-size:10px;
+  letter-spacing:.3em;
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+  font-size:clamp(48px,6vw,86px);
+  line-height:.95;
+  margin-bottom:22px;
+}
+
+.hero h1 em,
+h2 em{
+  color:var(--gold2);
+  font-style:italic;
+}
+
+.hero-text{
+  color:#d0cbc2;
+  line-height:1.8;
+  font-size:14px;
+  max-width:500px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  margin-top:30px;
+}
+
+.outline-btn{
+  padding:13px 20px;
+  border:1px solid rgba(255,255,255,.25);
+  color:white;
+  text-decoration:none;
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.outline-btn:hover{
+  border-color:var(--gold);
+  color:var(--gold2);
+}
+
+.hero-stats{
+  display:flex;
+  gap:35px;
+  margin-top:48px;
+}
+
+.hero-stat{
+  border-left:1px solid var(--gold);
+  padding-left:13px;
+}
+
+.hero-stat b{
+  display:block;
+  color:var(--gold2);
+  font-family:"Playfair Display",serif;
+  font-size:17px;
+}
+
+.hero-stat span{
+  color:#aaa;
+  font-size:9px;
+}
+
+.hero-dots{
+  position:absolute;
+  right:30px;
+  bottom:30px;
+  display:flex;
+  gap:8px;
+  z-index:8;
+}
+
+.hero-dots button{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  border:1px solid var(--gold2);
+  background:transparent;
+  cursor:pointer;
+}
+
+.hero-dots button.active{
+  background:var(--gold2);
+  transform:scale(1.4);
+}
+
+.progress{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:2px;
+  background:rgba(255,255,255,.15);
+  z-index:8;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  width:0;
+  background:var(--gold2);
+}
+
+/* =========================
+   TRUST
+========================= */
+
+.trust{
+  max-width:var(--max);
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+
+  border-left:1px solid var(--line);
+  border-right:1px solid var(--line);
+}
+
+.trust-item{
+  padding:25px;
+  border-right:1px solid var(--line);
+}
+
+.trust-item:last-child{
+  border-right:0;
+}
+
+.trust-number{
+  color:var(--gold);
+  font-size:10px;
+}
+
+.trust-item b{
+  display:block;
+  font-size:13px;
+  margin:7px 0;
+}
+
+.trust-item span{
+  color:#777;
+  font-size:10px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+  max-width:var(--max);
+  margin:auto;
+  padding:110px 20px;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:40px;
+  margin-bottom:45px;
+}
+
+.section-head h2{
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+  font-size:clamp(40px,5vw,65px);
+  line-height:1;
+}
+
+.section-head>p{
+  color:#8e8980;
+  max-width:400px;
+  line-height:1.8;
+  font-size:13px;
+}
+
+/* =========================
+   FEATURE COLLECTION
+========================= */
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:1.3fr .85fr .85fr;
+  grid-auto-rows:250px;
+  gap:14px;
+}
+
+.feature{
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  cursor:pointer;
+}
+
+.feature:first-child{
+  grid-row:span 2;
+}
+
+.feature img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .9s;
+}
+
+.feature:hover img{
+  transform:scale(1.08);
+}
+
+.feature::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    0deg,
+    rgba(0,0,0,.8),
+    transparent 60%
+  );
+}
+
+.feature-content{
+  position:absolute;
+  z-index:2;
+  left:20px;
+  right:20px;
+  bottom:20px;
+}
+
+.feature-content span{
+  color:var(--gold2);
+  font-size:9px;
+  letter-spacing:.2em;
+}
+
+.feature-content h3{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  margin:5px 0;
+}
+
+.feature-content p{
+  color:#aaa;
+  font-size:10px;
+}
+
+/* =========================
+   SHOWCASE
+========================= */
+
+.showcase{
+  max-width:var(--max);
+  margin:auto;
+  padding:0 20px 110px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.showcase-image{
+  height:600px;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+
+.showcase-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:1s;
+}
+
+.showcase-image:hover img{
+  transform:scale(1.05);
+}
+
+.showcase h2{
+  font-family:"Playfair Display",serif;
+  font-size:55px;
+  font-weight:500;
+  line-height:1;
+}
+
+.showcase-text{
+  color:#999;
+  line-height:1.9;
+  margin-top:20px;
+  font-size:14px;
+}
+
+.points{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:30px 0;
+}
+
+.points div{
+  color:#bbb;
+  font-size:11px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;
+}
+
+/* =========================
+   CATALOGUE
+========================= */
+
+.catalogue-tools{
+  display:flex;
+  gap:10px;
+}
+
+.search-box{
+  height:42px;
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  padding:0 12px;
+  background:#0e0e0d;
+  min-width:240px;
+}
+
+.search-box span{
+  color:var(--gold);
+  margin-right:8px;
+}
+
+.search-box input{
+  background:transparent;
+  border:0;
+  outline:0;
+  color:white;
+  width:100%;
+  font-size:12px;
+}
+
+select{
+  background:#0e0e0d;
+  color:#ddd;
+  border:1px solid var(--line);
+  padding:0 12px;
+  outline:0;
+}
+
+.catalogue-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.sofa-card{
+  background:#10100e;
+  border:1px solid rgba(255,255,255,.06);
+  overflow:hidden;
+  cursor:pointer;
+
+  opacity:0;
+  transform:translateY(25px);
+
+  animation:cardIn .7s forwards;
+}
+
+@keyframes cardIn{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.sofa-image{
+  height:255px;
+  overflow:hidden;
+  background:#161512;
+}
+
+.sofa-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.7s;
+}
+
+.sofa-card:hover{
+  border-color:rgba(213,166,66,.5);
+  transform:translateY(-7px);
+  transition:.35s;
+}
+
+.sofa-card:hover img{
+  transform:scale(1.07);
+}
+
+.sofa-info{
+  padding:15px;
+}
+
+.sofa-info small{
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.sofa-info h3{
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+  font-size:19px;
+  margin:6px 0;
+}
+
+.sofa-info p{
+  color:#777;
+  font-size:10px;
+}
+
+.sofa-bottom{
+  display:flex;
+  justify-content:space-between;
+  margin-top:14px;
+  align-items:center;
+}
+
+.sofa-bottom b{
+  color:var(--gold2);
+  font-size:12px;
+}
+
+.sofa-bottom span{
+  color:#777;
+  font-size:10px;
+}
+
+.no-results{
+  display:none;
+  color:#777;
+  text-align:center;
+  padding:50px;
+}
+
+/* =========================
+   SALE
+========================= */
+
+.sale{
+  padding:0 20px 110px;
+}
+
+.sale-box{
+  max-width:var(--max);
+  margin:auto;
+
+  border:1px solid var(--line);
+
+  padding:45px;
+
+  display:grid;
+  grid-template-columns:1fr .7fr auto;
+  align-items:center;
+  gap:30px;
+
+  background:
+  radial-gradient(
+    circle at 80% 50%,
+    rgba(213,166,66,.15),
+    transparent 35%
+  ),
+  #11100d;
+}
+
+.sale h2{
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+  font-size:45px;
+  line-height:1;
+}
+
+.sale-word{
+  font-size:38px;
+  letter-spacing:.15em;
+  color:var(--gold2);
+  font-weight:700;
+}
+
+.sale-text{
+  color:#888;
+  font-size:11px;
+  line-height:1.6;
+}
+
+/* =========================
+   CUSTOM
+========================= */
+
+.custom{
+  padding:0 20px 110px;
+}
+
+.custom-box{
+  max-width:var(--max);
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  border:1px solid var(--line);
+
+  background:
+  linear-gradient(
+    135deg,
+    #16120c,
+    #0c0c0b
+  );
+}
+
+.custom-left{
+  padding:60px 50px;
+}
+
+.custom-left h2{
+  font-family:"Playfair Display",serif;
+  font-size:55px;
+  font-weight:500;
+  line-height:1;
+}
+
+.custom-left p{
+  color:#999;
+  font-size:13px;
+  line-height:1.8;
+  margin-top:20px;
+}
+
+.swatches{
+  display:flex;
+  gap:10px;
+  margin-top:30px;
+}
+
+.swatch{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:2px solid transparent;
+  cursor:pointer;
+}
+
+.swatch.active{
+  border-color:var(--gold2);
+  box-shadow:0 0 0 3px rgba(213,166,66,.15);
+}
+
+.selected{
+  color:#777;
+  font-size:10px;
+  display:block;
+  margin-top:10px;
+}
+
+.selected b{
+  color:#ddd;
+}
+
+.custom-form{
+  padding:60px 50px;
+  border-left:1px solid var(--line);
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:11px;
+}
+
+.custom-form input,
+.custom-form select,
+.custom-form textarea{
+  background:#090908;
+  border:1px solid rgba(255,255,255,.09);
+  color:#ddd;
+  padding:13px;
+  outline:none;
+}
+
+.custom-form textarea{
+  grid-column:1/-1;
+  resize:vertical;
+}
+
+.custom-form button{
+  grid-column:1/-1;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+  max-width:var(--max);
+  margin:auto;
+  padding:20px 20px 110px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.about-image{
+  height:580px;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+
+.about-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.about h2{
+  font-family:"Playfair Display",serif;
+  font-size:55px;
+  font-weight:500;
+  line-height:1;
+}
+
+.about p{
+  color:#999;
+  line-height:1.9;
+  font-size:14px;
+  margin-top:20px;
+}
+
+.about-stats{
+  display:flex;
+  gap:45px;
+  margin-top:35px;
+}
+
+.about-stat b{
+  display:block;
+  color:var(--gold2);
+  font-family:"Playfair Display",serif;
+  font-size:24px;
+}
+
+.about-stat span{
+  color:#777;
+  font-size:9px;
+  text-transform:uppercase;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  max-width:var(--max);
+  margin:auto;
+  padding:20px 20px 110px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.contact-card{
+  padding:30px;
+  background:#10100e;
+  border:1px solid var(--line);
+  text-decoration:none;
+  color:white;
+  transition:.35s;
+}
+
+.contact-card:hover{
+  transform:translateY(-8px);
+  border-color:var(--gold);
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+
+.contact-card span{
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:.2em;
+}
+
+.contact-card b{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:20px;
+  margin:10px 0;
+  word-break:break-word;
+}
+
+.contact-card small{
+  color:#777;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#060606;
+  border-top:1px solid var(--line);
+  padding:45px max(20px,calc((100vw - var(--max))/2)) 25px;
+}
+
+.footer-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+}
+
+.footer-links{
+  display:flex;
+  gap:20px;
+}
+
+.footer-links a{
+  color:#888;
+  font-size:11px;
+}
+
+.footer-links a:hover{
+  color:var(--gold2);
+}
+
+.footer-tagline{
+  color:#666;
+  font-size:11px;
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.06);
+  margin-top:35px;
+  padding-top:18px;
+
+  display:flex;
+  justify-content:space-between;
+
+  color:#555;
+  font-size:9px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:200;
+
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(12px);
+
+  display:none;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+}
+
+.modal.open{
+  display:flex;
+}
+
+.modal-box{
+  width:min(1000px,100%);
+  background:#11100e;
+  border:1px solid var(--line);
+
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.modal-image{
+  height:600px;
+}
+
+.modal-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.modal-content{
+  padding:55px 45px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.modal-content h2{
+  font-family:"Playfair Display",serif;
+  font-size:45px;
+  font-weight:500;
+}
+
+.modal-content p{
+  color:#999;
+  font-size:13px;
+  line-height:1.8;
+  margin:15px 0;
+}
+
+.close{
+  position:absolute;
+  right:15px;
+  top:10px;
+
+  background:none;
+  border:0;
+  color:#aaa;
+
+  font-size:30px;
+
+  cursor:pointer;
+
+  z-index:5;
+}
+
+/* =========================
+   SEARCH MODAL
+========================= */
+
+.search-modal{
+  position:fixed;
+  inset:0;
+  z-index:210;
+
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(12px);
+
+  display:none;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+}
+
+.search-modal.open{
+  display:flex;
+}
+
+.search-panel{
+  width:min(600px,100%);
+  background:#11100e;
+  border:1px solid var(--line);
+  padding:50px;
+  position:relative;
+}
+
+.search-panel h2{
+  font-family:"Playfair Display",serif;
+  font-size:50px;
+  font-weight:500;
+  margin-bottom:20px;
+}
+
+.search-panel input{
+  width:100%;
+  padding:17px;
+  background:#080808;
+  color:white;
+  border:1px solid var(--line);
+  outline:none;
+}
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+/* =========================
+   BACK TOP
+========================= */
+
+.back-top{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+
+  width:43px;
+  height:43px;
+
+  border-radius:50%;
+  border:1px solid var(--line);
+
+  background:#0d0c0a;
+  color:var(--gold2);
+
+  cursor:pointer;
+
+  opacity:0;
+  pointer-events:none;
+
+  transition:.3s;
+
+  z-index:50;
+}
+
+.back-top.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:950px){
+
+  nav{
+    display:none;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .catalogue-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .showcase,
+  .about,
+  .custom-box{
+    grid-template-columns:1fr;
+  }
+
+  .custom-form{
+    border-left:0;
+    border-top:1px solid var(--line);
+  }
+
+  .sale-box{
+    grid-template-columns:1fr;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .feature-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .feature:first-child{
+    grid-row:auto;
+  }
+}
+
+@media(max-width:650px){
+
+  .offer-bar{
+    font-size:8px;
+    gap:8px;
+  }
+
+  .offer-bar span:nth-child(2){
+    display:none;
+  }
+
+  header{
+    height:67px;
+  }
+
+  .logo b{
+    font-size:12px;
+  }
+
+  .logo small{
+    font-size:7px;
+  }
+
+  .header-right .gold-btn{
+    display:none;
+  }
+
+  .hero{
+    min-height:650px;
+    height:calc(100vh - 102px);
+  }
+
+  .hero-content{
+    left:20px;
+    right:20px;
+  }
+
+  .hero h1{
+    font-size:51px;
+  }
+
+  .hero-text{
+    font-size:13px;
+  }
+
+  .hero-stats{
+    gap:15px;
+    margin-top:35px;
+  }
+
+  .hero-stat b{
+    font-size:14px;
+  }
+
+  .trust{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .trust-item{
+    padding:16px;
+  }
+
+  .section{
+    padding:80px 16px;
+  }
+
+  .section-head{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
+
+  .showcase{
+    padding:0 16px 80px;
+    gap:35px;
+  }
+
+  .showcase-image{
+    height:430px;
+  }
+
+  .showcase h2{
+    font-size:43px;
+  }
+
+  .catalogue-tools{
+    width:100%;
+    flex-direction:column;
+  }
+
+  .search-box{
+    min-width:0;
+  }
+
+  .catalogue-grid{
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+  }
+
+  .sofa-image{
+    height:175px;
+  }
+
+  .sofa-info{
+    padding:11px;
+  }
+
+  .sofa-info h3{
+    font-size:16px;
+  }
+
+  .custom{
+    padding:0 16px 80px;
+  }
+
+  .custom-left,
+  .custom-form{
+    padding:38px 25px;
+  }
+
+  .custom-left h2{
+    font-size:42px;
+  }
+
+  .custom-form{
+    grid-template-columns:1fr;
+  }
+
+  .custom-form textarea,
+  .custom-form button{
+    grid-column:auto;
+  }
+
+  .about{
+    padding:0 16px 80px;
+  }
+
+  .about-image{
+    height:430px;
+  }
+
+  .about h2{
+    font-size:43px;
+  }
+
+  .contact{
+    padding:0 16px 80px;
+  }
+
+  .footer-top,
+  .footer-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .modal-box{
+    grid-template-columns:1fr;
+  }
+
+  .modal-image{
+    height:320px;
+  }
+
+  .modal-content{
+    padding:35px 25px;
+  }
+
+  .modal-content h2{
+    font-size:35px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+<div class="bg-orb orb3"></div>
+
+<!-- OFFER -->
+<div class="offer-bar">
+  <span>✦ LIMITED-TIME OFFER</span>
+  <span>Special pricing on selected sofa designs</span>
+  <a href="#contact">Enquire Now →</a>
+</div>
+
+<!-- HEADER -->
+<header>
+
+  <a href="#home" class="logo">
+    <img src="assets/dfh-logo.jpg" alt="DFH">
+    <span>
+      <b>Dream Furniture</b>
+      <small>Handicraft</small>
+    </span>
+  </a>
+
+  <nav id="mainNav">
+    <a href="#home">Home</a>
+    <a href="#collections">Collections</a>
+    <a href="#catalogue">Sofas</a>
+    <a href="#custom">Custom</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="header-right">
+
+    <button class="search-btn" id="searchButton">
+      ⌕
+    </button>
+
+    <a
+      class="gold-btn"
+      href="https://wa.me/918218364238?text=Hi%20DFH%2C%20I%20want%20to%20enquire%20about%20a%20sofa."
+      target="_blank">
+      WhatsApp
+    </a>
+
+    <button class="menu-btn" id="menuButton">
+      ☰
+    </button>
+
+  </div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <div class="hero-slides" id="heroSlides"></div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <p class="eyebrow">
+      DREAM FURNITURE HANDICRAFT
+    </p>
+
+    <h1>
+      Comfort,<br>
+      <em>crafted</em> for your space.
+    </h1>
+
+    <p class="hero-text">
+      Premium sofa designs, thoughtful details and custom comfort —
+      made to feel like home.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a class="gold-btn" href="#catalogue">
+        Explore Sofas ↗
+      </a>
+
+      <a class="outline-btn" href="#custom">
+        Design Yours
+      </a>
+
+    </div>
+
+    <div class="hero-stats">
+
+      <div class="hero-stat">
+        <b>258+</b>
+        <span>Catalogue Designs</span>
+      </div>
+
+      <div class="hero-stat">
+        <b>Custom</b>
+        <span>Sizes & Colours</span>
+      </div>
+
+      <div class="hero-stat">
+        <b>India</b>
+        <span>Delivery Available</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="hero-dots" id="heroDots"></div>
+
+  <div class="progress">
+    <span id="progressBar"></span>
+  </div>
+
+</section>
+
+<!-- TRUST -->
+<section class="trust reveal">
+
+  <div class="trust-item">
+    <span class="trust-number">01</span>
+    <b>Premium Finish</b>
+    <span>Designed for modern homes</span>
+  </div>
+
+  <div class="trust-item">
+    <span class="trust-number">02</span>
+    <b>Custom Comfort</b>
+    <span>Choose size & colour</span>
+  </div>
+
+  <div class="trust-item">
+    <span class="trust-number">03</span>
+    <b>Made With Care</b>
+    <span>Detail-focused craftsmanship</span>
+  </div>
+
+  <div class="trust-item">
+    <span class="trust-number">04</span>
+    <b>Easy Enquiry</b>
+    <span>WhatsApp & Call Support</span>
+  </div>
+
+</section>
+
+<!-- COLLECTIONS -->
+<section class="section" id="collections">
+
+  <div class="section-head reveal">
+
+    <div>
+      <p class="eyebrow">CURATED FOR YOU</p>
+
+      <h2>
+        Explore the <em>collection</em>
+      </h2>
+    </div>
+
+    <p>
+      From compact seating to statement sectionals,
+      discover a style for every room.
+    </p>
+
+  </div>
+
+  <div class="feature-grid" id="featureGrid"></div>
+
+</section>
+
+<!-- SHOWCASE -->
+<section class="showcase reveal">
+
+  <div class="showcase-image">
+    <img
+      src="assets/home/home-05.png"
+      alt="DFH premium sofa">
+  </div>
+
+  <div>
+
+    <p class="eyebrow">
+      THE DFH FEEL
+    </p>
+
+    <h2>
+      Luxury that still feels
+      <em>like home.</em>
+    </h2>
+
+    <p class="showcase-text">
+      Warm textures, clean silhouettes and room-ready designs
+      come together for a premium look without losing everyday comfort.
+    </p>
+
+    <div class="points">
+
+      <div>✦ Modern silhouettes</div>
+      <div>✦ Premium-looking finishes</div>
+      <div>✦ Custom colour options</div>
+      <div>✦ Direct WhatsApp enquiry</div>
+
+    </div>
+
+    <a class="gold-btn" href="#contact">
+      Talk to DFH ↗
+    </a>
+
+  </div>
+
+</section>
+
+<!-- CATALOGUE -->
+<section class="section" id="catalogue">
+
+  <div class="section-head reveal">
+
+    <div>
+
+      <p class="eyebrow">
+        THE FULL RANGE
+      </p>
+
+      <h2>
+        258 sofa <em>designs</em>
+      </h2>
+
+    </div>
+
+    <p>
+      Browse the complete catalogue and tap any design
+      to enquire about colour, size and pricing.
+    </p>
+
+  </div>
+
+  <div class="catalogue-tools">
+
+    <div class="search-box">
+
+      <span>⌕</span>
+
+      <input
+        id="catalogueSearch"
+        placeholder="Search sofa..."
+        autocomplete="off">
+
+    </div>
+
+    <select id="categoryFilter">
+
+      <option value="all">All Designs</option>
+
+      <option value="single">1 Seater</option>
+      <option value="two">2 Seater</option>
+      <option value="three">3 Seater</option>
+      <option value="four">4 Seater</option>
+      <option value="five">5 Seater</option>
+      <option value="six">6 Seater</option>
+      <option value="lshape">L-Shape</option>
+      <option value="sectional">Sectional</option>
+      <option value="recliner">Recliner</option>
+
+    </select>
+
+  </div>
+
+  <br>
+
+  <div class="catalogue-grid" id="catalogueGrid"></div>
+
+  <div class="no-results" id="noResults">
+    No sofa design found.
+  </div>
+
+</section>
+
+<!-- SALE -->
+<section class="sale reveal">
+
+  <div class="sale-box">
+
+    <div>
+
+      <p class="eyebrow">
+        CURRENT OFFER
+      </p>
+
+      <h2>
+        A better sofa.<br>
+        <em>A better room.</em>
+      </h2>
+
+    </div>
+
+    <div>
+
+      <div class="sale-word">
+        SALE
+      </div>
+
+      <p class="sale-text">
+        Selected designs have special enquiry pricing.
+        Contact DFH for the latest offer.
+      </p>
+
+    </div>
+
+    <a
+      class="gold-btn"
+      href="https://wa.me/918218364238?text=Hi%20DFH%2C%20please%20share%20your%20current%20offer%20and%20sofa%20pricing."
+      target="_blank">
+
+      Get Offer Price ↗
+
+    </a>
+
+  </div>
+
+</section>
+
+<!-- CUSTOM -->
+<section class="custom" id="custom">
+
+  <div class="custom-box reveal">
+
+    <div class="custom-left">
+
+      <p class="eyebrow">
+        MAKE IT YOURS
+      </p>
+
+      <h2>
+        Custom sofa,
+        <em>your way.</em>
+      </h2>
+
+      <p>
+        Tell us your preferred size, colour and requirements.
+        We'll turn your idea into a clear WhatsApp enquiry.
+      </p>
+
+      <div class="swatches">
+
+        <button class="swatch active"
+          data-colour="Ivory"
+          style="background:#eee8dc"></button>
+
+        <button class="swatch"
+          data-colour="Beige"
+          style="background:#cdb99d"></button>
+
+        <button class="swatch"
+          data-colour="Olive"
+          style="background:#68705a"></button>
+
+        <button class="swatch"
+          data-colour="Charcoal"
+          style="background:#303033"></button>
+
+        <button class="swatch"
+          data-colour="Wine"
+          style="background:#6e2937"></button>
+
+        <button class="swatch"
+          data-colour="Gold"
+          style="background:#d5a642"></button>
+
+      </div>
+
+      <span class="selected">
+        Selected:
+        <b id="selectedColour">Ivory</b>
+      </span>
+
+    </div>
+
+    <form class="custom-form" id="customForm">
+
+      <input
+        id="customerName"
+        required
+        placeholder="Your name">
+
+      <input
+        id="customerPhone"
+        required
+        placeholder="Phone number">
+
+      <input
+        id="customerCity"
+        placeholder="City">
+
+      <select id="sofaType">
+
+        <option>3 Seater Sofa</option>
+        <option>4 Seater Sofa</option>
+        <option>L-Shape Sofa</option>
+        <option>Sectional Sofa</option>
+        <option>Recliner</option>
+        <option>Custom Sofa</option>
+
+      </select>
+
+      <input
+        id="sofaSize"
+        placeholder="Preferred size e.g. 84 × 34 in">
+
+      <textarea
+        id="requirements"
+        rows="4"
+        placeholder="Tell us your requirements..."></textarea>
+
+      <button class="gold-btn" type="submit">
+        Send Custom Enquiry ↗
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+  <div class="about-image reveal">
+
+    <img
+      src="assets/home/home-15.png"
+      alt="Dream Furniture Handicraft">
+
+  </div>
+
+  <div class="reveal">
+
+    <p class="eyebrow">
+      ABOUT DFH
+    </p>
+
+    <h2>
+      Furniture with a
+      <em>personal touch.</em>
+    </h2>
+
+    <p>
+      Dream Furniture Handicraft brings together modern sofa styling,
+      comfort-first thinking and a premium visual finish.
+      Browse the catalogue, choose a design or send us your custom idea.
+    </p>
+
+    <div class="about-stats">
+
+      <div class="about-stat">
+        <b>258+</b>
+        <span>Designs</span>
+      </div>
+
+      <div class="about-stat">
+        <b>Custom</b>
+        <span>Options</span>
+      </div>
+
+      <div class="about-stat">
+        <b>India</b>
+        <span>Delivery</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+  <div class="section-head reveal">
+
+    <div>
+
+      <p class="eyebrow">
+        CONTACT DFH
+      </p>
+
+      <h2>
+        Let's find your
+        <em>sofa.</em>
+      </h2>
+
+    </div>
+
+    <p>
+      Have a question, need a price or want a custom design?
+      Send an enquiry.
+    </p>
+
+  </div>
+
+  <div class="contact-grid">
+
+    <a
+      class="contact-card reveal"
+      href="https://wa.me/918218364238"
+      target="_blank">
+
+      <span>WHATSAPP</span>
+
+      <b>
+        +91 82183 64238
+      </b>
+
+      <small>
+        Chat with DFH ↗
+      </small>
+
+    </a>
+
+    <a
+      class="contact-card reveal"
+      href="mailto:dreamfurniturehandicarft@gmail.com">
+
+      <span>EMAIL</span>
+
+      <b>
+        dreamfurniturehandicarft@gmail.com
+      </b>
+
+      <small>
+        Send an email ↗
+      </small>
+
+    </a>
+
+    <a
+      class="contact-card reveal"
+      href="tel:+918218364238">
+
+      <span>CALL</span>
+
+      <b>
+        +91 82183 64238
+      </b>
+
+      <small>
+        Call DFH ↗
+      </small>
+
+    </a>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-top">
+
+    <a href="#home" class="logo">
+
+      <img
+        src="assets/dfh-logo.jpg"
+        alt="DFH">
+
+      <span>
+        <b>Dream Furniture</b>
+        <small>Handicraft</small>
+      </span>
+
+    </a>
+
+    <p class="footer-tagline">
+      Premium sofas. Personalized for you.
+    </p>
+
+    <div class="footer-links">
+
+      <a href="#home">Home</a>
+      <a href="#catalogue">Sofas</a>
+      <a href="#custom">Custom</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <span>
+      © 2026 Dream Furniture Handicraft
+    </span>
+
+    <span>
+      Crafted for comfort • Designed for you
+    </span>
+
+  </div>
+
+</footer>
+
+<!-- BACK TOP -->
+<button class="back-top" id="backTop">
+  ↑
+</button>
+
+<!-- SEARCH MODAL -->
+<div class="search-modal" id="searchModal">
+
+  <div class="search-panel">
+
+    <button class="close" id="searchClose">
+      ×
+    </button>
+
+    <p class="eyebrow">
+      QUICK SEARCH
+    </p>
+
+    <h2>
+      Find a sofa
+    </h2>
+
+    <input
+      id="globalSearch"
+      placeholder="Type sofa name or design...">
+
+  </div>
+
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal" id="productModal">
+
+  <div class="modal-box">
+
+    <button class="close" id="modalClose">
+      ×
+    </button>
+
+    <div class="modal-image">
+
+      <img id="modalImg" src="" alt="">
+
+    </div>
+
+    <div class="modal-content">
+
+      <p class="eyebrow">
+        DFH DESIGN
+      </p>
+
+      <h2 id="modalTitle">
+        DFH Sofa
+      </h2>
+
+      <p id="modalDescription">
+        Premium sofa design.
+      </p>
+
+      <p>
+        Current price:
+        <strong style="color:#f2d17a">
+          Enquiry
+        </strong>
+      </p>
+
+      <a
+        id="modalWhatsApp"
+        class="gold-btn"
+        target="_blank">
+
+        Enquire on WhatsApp ↗
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+/* =====================================================
+   DFH WEBSITE JAVASCRIPT
+===================================================== */
+
+const WHATSAPP = "918218364238";
+
+
+/* =====================================================
+   HOME IMAGES
+===================================================== */
+
+const HOME_IMAGES = [];
+
+for(let i=1;i<=17;i++){
+
+  HOME_IMAGES.push(
+    `assets/home/home-${String(i).padStart(2,"0")}.png`
+  );
+
 }
 
 
-/* =========================
+/* =====================================================
    HERO SLIDER
-========================= */
+   3 SECOND GAP
+===================================================== */
 
-const heroImages = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    7
-];
+const heroContainer =
+  document.getElementById("heroSlides");
+
+const heroDots =
+  document.getElementById("heroDots");
+
+const progress =
+  document.getElementById("progressBar");
 
 let heroIndex = 0;
 
-const heroImage =
-    document.getElementById("heroSofa");
+const HERO_COUNT = 6;
 
-const heroNumber =
-    document.querySelector(".hero-number");
+for(let i=0;i<HERO_COUNT;i++){
+
+  const slide =
+    document.createElement("div");
+
+  slide.className =
+    "hero-slide" +
+    (i===0 ? " active" : "");
+
+  slide.innerHTML = `
+    <img
+      src="${HOME_IMAGES[i]}"
+      alt="Dream Furniture Handicraft Sofa"
+      loading="${i===0 ? "eager" : "lazy"}">
+  `;
+
+  heroContainer.appendChild(slide);
 
 
-function changeHero() {
+  const dot =
+    document.createElement("button");
 
-    heroIndex++;
+  if(i===0)
+    dot.classList.add("active");
 
-    if (heroIndex >= heroImages.length) {
-        heroIndex = 0;
+  dot.onclick = () => {
+    changeHero(i);
+    restartHero();
+  };
+
+  heroDots.appendChild(dot);
+
+}
+
+const heroSlides =
+  [...heroContainer.children];
+
+const dots =
+  [...heroDots.children];
+
+
+function changeHero(index){
+
+  heroIndex =
+    (index + heroSlides.length)
+    % heroSlides.length;
+
+  heroSlides.forEach(
+    (slide,i)=>{
+      slide.classList.toggle(
+        "active",
+        i===heroIndex
+      );
     }
+  );
 
-    heroImage.style.opacity = "0";
+  dots.forEach(
+    (dot,i)=>{
+      dot.classList.toggle(
+        "active",
+        i===heroIndex
+      );
+    }
+  );
 
-    setTimeout(() => {
+  progress.style.transition="none";
+  progress.style.width="0%";
 
-        heroImage.src =
-            imagePath(heroImages[heroIndex]);
+  requestAnimationFrame(()=>{
 
-        heroNumber.innerText =
-            `0${heroIndex + 1} / 06`;
+    progress.style.transition=
+      "width 3s linear";
 
-        heroImage.style.opacity = "1";
+    progress.style.width="100%";
 
-    }, 350);
+  });
+
 }
 
 
-setInterval(changeHero, 3500);
+let heroTimer;
+
+function restartHero(){
+
+  clearInterval(heroTimer);
+
+  changeHero(heroIndex);
+
+  heroTimer =
+    setInterval(
+      ()=>{
+        changeHero(heroIndex+1);
+      },
+      3000
+    );
+
+}
+
+restartHero();
 
 
-/* =========================
-   FEATURED PRODUCTS
-========================= */
+/* =====================================================
+   FEATURED COLLECTIONS
+===================================================== */
 
-const products =
-    document.getElementById("products");
+const featured = [
 
-const featured =
-    [1, 2, 3, 7];
+  {
+    title:"L-Shape Living",
+    text:"Flexible comfort for larger spaces",
+    image:HOME_IMAGES[1]
+  },
 
-const prices =
-    [
-        "₹34,999",
-        "₹44,999",
-        "₹54,999",
-        "₹69,999"
-    ];
+  {
+    title:"Modern 4 Seater",
+    text:"Clean lines, premium presence",
+    image:HOME_IMAGES[4]
+  },
+
+  {
+    title:"Statement Lounge",
+    text:"A relaxed centrepiece",
+    image:HOME_IMAGES[8]
+  },
+
+  {
+    title:"Classic Comfort",
+    text:"Timeless styling for everyday rooms",
+    image:HOME_IMAGES[10]
+  }
+
+];
 
 
-featured.forEach((page, index) => {
+const featureGrid =
+  document.getElementById("featureGrid");
 
-    const card =
-        document.createElement("div");
 
-    card.className = "product";
+featured.forEach((item,index)=>{
 
-    card.innerHTML = `
+  const card =
+    document.createElement("article");
 
-        <img
-            src="${imagePath(page)}"
-            alt="Dream Furniture Sofa"
-        >
+  card.className =
+    "feature reveal";
 
-        <div class="product-info">
+  card.innerHTML = `
 
-            <h3>
-                Premium Sofa
-            </h3>
+    <img
+      src="${item.image}"
+      alt="${item.title}"
+      loading="lazy">
 
-            <p>
-                Starting ${prices[index]}
-            </p>
+    <div class="feature-content">
 
-        </div>
+      <span>
+        DFH COLLECTION
+      </span>
 
-    `;
+      <h3>
+        ${item.title}
+      </h3>
 
-    card.onclick = () => {
+      <p>
+        ${item.text}
+      </p>
 
-        openProduct(
-            page,
-            prices[index]
-        );
+    </div>
 
-    };
+  `;
 
-    products.appendChild(card);
+  card.onclick = () => {
+
+    openProduct(
+      item.image,
+      item.title,
+      item.text
+    );
+
+  };
+
+  featureGrid.appendChild(card);
 
 });
 
 
-/* =========================
-   ALL 258 SOFAS
-========================= */
+/* =====================================================
+   CATALOGUE
+===================================================== */
 
 const catalogue =
-    document.getElementById(
-        "catalogueGrid"
+  document.getElementById("catalogueGrid");
+
+const types = [
+  "single",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "lshape",
+  "sectional",
+  "recliner"
+];
+
+const typeNames = [
+  "1 Seater",
+  "2 Seater",
+  "3 Seater",
+  "4 Seater",
+  "5 Seater",
+  "6 Seater",
+  "L-Shape",
+  "Sectional",
+  "Recliner"
+];
+
+const cards=[];
+
+
+for(let i=1;i<=258;i++){
+
+  const type =
+    types[i % types.length];
+
+  const typeName =
+    typeNames[i % typeNames.length];
+
+
+  const card =
+    document.createElement("article");
+
+  card.className =
+    "sofa-card";
+
+  card.dataset.type =
+    type;
+
+  card.dataset.search =
+    `
+    dfh design ${i}
+    ${typeName}
+    sofa
+    premium
+    `
+    .toLowerCase();
+
+
+  card.style.animationDelay =
+    `${Math.min((i%15)*0.04,.5)}s`;
+
+
+  card.innerHTML = `
+
+    <div class="sofa-image">
+
+      <img
+        src="images/catalogue-${i}.jpg"
+        alt="DFH ${typeName} Design ${i}"
+        loading="lazy">
+
+    </div>
+
+    <div class="sofa-info">
+
+      <small>
+        ${typeName}
+      </small>
+
+      <h3>
+        DFH Design ${String(i).padStart(3,"0")}
+      </h3>
+
+      <p>
+        Premium sofa • Enquiry for price
+      </p>
+
+      <div class="sofa-bottom">
+
+        <b>
+          Enquiry Price
+        </b>
+
+        <span>
+          View ↗
+        </span>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  card.onclick = () => {
+
+    openProduct(
+
+      `images/catalogue-${i}.jpg`,
+
+      `DFH Design ${String(i).padStart(3,"0")}`,
+
+      `${typeName} premium catalogue design. Ask DFH about available colours, sizes and customization.`
+
     );
 
-
-for (
-    let page = 1;
-    page <= 258;
-    page++
-) {
-
-    const card =
-        document.createElement("div");
-
-    card.className =
-        "catalogue-card";
-
-    card.dataset.page =
-        page;
-
-    card.innerHTML = `
-
-        <img
-            src="${imagePath(page)}"
-            loading="lazy"
-            alt="Dream Furniture Sofa ${page}"
-        >
-
-        <p>
-            Sofa Design #${page}
-        </p>
-
-    `;
+  };
 
 
-    card.onclick = () => {
+  catalogue.appendChild(card);
 
-        openProduct(
-            page,
-            "Price on Enquiry"
-        );
-
-    };
-
-
-    catalogue.appendChild(card);
+  cards.push(card);
 
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* =====================================================
+   SEARCH / FILTER
+===================================================== */
 
-const search =
-    document.getElementById(
-        "search"
-    );
+const searchInput =
+  document.getElementById("catalogueSearch");
 
+const filter =
+  document.getElementById("categoryFilter");
 
-search.addEventListener(
-    "input",
-    function () {
-
-        const value =
-            this.value
-                .toLowerCase()
-                .trim();
+const noResults =
+  document.getElementById("noResults");
 
 
-        document
-            .querySelectorAll(
-                ".catalogue-card"
-            )
-            .forEach(card => {
+function filterCatalogue(){
 
-                const page =
-                    card.dataset.page;
+  const query =
+    searchInput.value
+      .toLowerCase()
+      .trim();
 
-                card.style.display =
-                    page.includes(value)
-                        ? ""
-                        : "none";
+  const category =
+    filter.value;
 
-            });
+  let found=0;
+
+
+  cards.forEach(card=>{
+
+    const queryOK =
+      !query ||
+      card.dataset.search.includes(query);
+
+    const categoryOK =
+      category==="all" ||
+      card.dataset.type===category;
+
+
+    if(queryOK && categoryOK){
+
+      card.style.display="block";
+
+      found++;
+
+    }else{
+
+      card.style.display="none";
 
     }
+
+  });
+
+
+  noResults.style.display =
+    found ? "none" : "block";
+
+}
+
+
+searchInput.addEventListener(
+  "input",
+  filterCatalogue
+);
+
+filter.addEventListener(
+  "change",
+  filterCatalogue
 );
 
 
-/* =========================
+/* =====================================================
    PRODUCT MODAL
-========================= */
+===================================================== */
 
-const modal =
-    document.getElementById(
-        "productModal"
-    );
+const productModal =
+  document.getElementById("productModal");
 
-const modalImage =
-    document.getElementById(
-        "modalImage"
-    );
+const modalImg =
+  document.getElementById("modalImg");
 
 const modalTitle =
-    document.getElementById(
-        "modalTitle"
-    );
+  document.getElementById("modalTitle");
 
-const modalPrice =
-    document.getElementById(
-        "modalPrice"
-    );
+const modalDescription =
+  document.getElementById("modalDescription");
 
 const modalWhatsApp =
-    document.getElementById(
-        "modalWhatsApp"
-    );
-
-
-let currentPage = 1;
+  document.getElementById("modalWhatsApp");
 
 
 function openProduct(
-    page,
-    price
-) {
+  image,
+  title,
+  description
+){
 
-    currentPage = page;
+  modalImg.src =
+    image;
 
-    modalImage.src =
-        imagePath(page);
+  modalImg.alt =
+    title;
 
-    modalTitle.innerText =
-        `Premium Sofa #${page}`;
+  modalTitle.textContent =
+    title;
 
-    modalPrice.innerText =
-        price;
-
-    modalWhatsApp.href =
-        `https://wa.me/918218364238?text=` +
-        encodeURIComponent(
-            `Hi Dream Furniture, I am interested in Sofa Design #${page}. Please share price, dimensions, colours and availability.`
-        );
+  modalDescription.textContent =
+    description;
 
 
-    modal.classList.add(
-        "active"
-    );
+  modalWhatsApp.href =
+    `https://wa.me/${WHATSAPP}?text=${
+      encodeURIComponent(
+        "Hi DFH, I am interested in " +
+        title +
+        ". Please share price, colours and availability."
+      )
+    }`;
+
+
+  productModal.classList.add("open");
+
+  document.body.style.overflow="hidden";
 
 }
 
 
-/* CLOSE MODAL */
+function closeProduct(){
+
+  productModal.classList.remove("open");
+
+  document.body.style.overflow="";
+
+}
+
 
 document
-    .getElementById("closeModal")
-    .onclick = () => {
-
-        modal.classList.remove(
-            "active"
-        );
-
-    };
+  .getElementById("modalClose")
+  .onclick =
+  closeProduct;
 
 
-modal.onclick = event => {
+productModal.addEventListener(
+  "click",
+  event=>{
 
-    if (
-        event.target === modal
-    ) {
+    if(event.target===productModal){
 
-        modal.classList.remove(
-            "active"
-        );
+      closeProduct();
 
     }
 
-};
+  }
+);
 
 
-/* =========================
-   VIEW BUTTON ANIMATION
-========================= */
+/* =====================================================
+   SEARCH POPUP
+===================================================== */
 
-document
-    .querySelectorAll(
-        ".view-buttons button"
-    )
-    .forEach(button => {
+const searchModal =
+  document.getElementById("searchModal");
 
-        button.onclick = () => {
-
-            modalImage.animate(
-
-                [
-                    {
-                        opacity: 0,
-                        transform:
-                            "scale(.92)"
-                    },
-
-                    {
-                        opacity: 1,
-                        transform:
-                            "scale(1)"
-                    }
-                ],
-
-                {
-                    duration: 400
-                }
-
-            );
-
-        };
-
-    });
-
-
-/* =========================
-   CUSTOM COLOURS
-========================= */
-
-let selectedColor =
-    "Black";
-
-
-const colorMap = {
-
-    Black: "#111",
-
-    Cream: "#eee5d0",
-
-    Brown: "#684126",
-
-    Grey: "#777",
-
-    Blue: "#273c5b",
-
-    Green: "#355548",
-
-    Pink: "#c98391",
-
-    Gold: "#c9a03d"
-
-};
-
-
-const preview =
-    document.getElementById(
-        "sofaPreview"
-    );
-
-
-const selected =
-    document.getElementById(
-        "selectedColor"
-    );
+const globalSearch =
+  document.getElementById("globalSearch");
 
 
 document
-    .querySelectorAll(".color")
-    .forEach(button => {
+  .getElementById("searchButton")
+  .onclick = () => {
 
-        button.onclick = () => {
+    searchModal.classList.add("open");
 
-            document
-                .querySelectorAll(".color")
-                .forEach(
-                    b =>
-                        b.classList.remove(
-                            "active"
-                        )
-                );
+    globalSearch.focus();
 
+  };
 
-            button.classList.add(
-                "active"
-            );
-
-
-            selectedColor =
-                button.dataset.color;
-
-
-            selected.innerText =
-                selectedColor;
-
-
-            preview.style.background =
-                `linear-gradient(
-                    135deg,
-                    ${colorMap[selectedColor]},
-                    #080808
-                )`;
-
-
-            preview.animate(
-
-                [
-                    {
-                        transform:
-                            "scale(.95)",
-                        opacity: .4
-                    },
-
-                    {
-                        transform:
-                            "scale(1)",
-                        opacity: 1
-                    }
-                ],
-
-                {
-                    duration: 450
-                }
-
-            );
-
-        };
-
-    });
-
-
-/* =========================
-   CUSTOM WHATSAPP
-========================= */
 
 document
-    .getElementById("sendCustom")
-    .onclick = () => {
+  .getElementById("searchClose")
+  .onclick = () => {
 
-        const name =
-            document.getElementById(
-                "customerName"
-            ).value;
+    searchModal.classList.remove("open");
 
-        const phone =
-            document.getElementById(
-                "customerPhone"
-            ).value;
-
-        const city =
-            document.getElementById(
-                "customerCity"
-            ).value;
-
-        const size =
-            document.getElementById(
-                "sofaSize"
-            ).value;
-
-        const message =
-            document.getElementById(
-                "customMessage"
-            ).value;
+  };
 
 
-        const text = `
+searchModal.addEventListener(
+  "click",
+  event=>{
 
-Hi Dream Furniture Handicraft,
+    if(event.target===searchModal){
 
-I want to create a custom sofa.
+      searchModal.classList.remove("open");
 
-Name: ${name}
+    }
 
-Phone: ${phone}
-
-City: ${city}
-
-Size: ${size}
-
-Colour: ${selectedColor}
-
-Requirements:
-${message}
-
-Please share price and details.
-
-        `;
+  }
+);
 
 
-        window.open(
+globalSearch.addEventListener(
+  "keydown",
+  event=>{
 
-            "https://wa.me/918218364238?text=" +
-            encodeURIComponent(text),
+    if(event.key==="Enter"){
 
-            "_blank"
+      searchInput.value =
+        globalSearch.value;
 
+      filterCatalogue();
+
+      searchModal.classList.remove(
+        "open"
+      );
+
+      document
+        .getElementById("catalogue")
+        .scrollIntoView({
+          behavior:"smooth"
+        });
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   CUSTOM COLOUR
+===================================================== */
+
+const swatches =
+  document.querySelectorAll(".swatch");
+
+const selectedColour =
+  document.getElementById("selectedColour");
+
+
+swatches.forEach(
+  swatch=>{
+
+    swatch.addEventListener(
+      "click",
+      ()=>{
+
+        swatches.forEach(
+          s=>s.classList.remove("active")
         );
 
-    };
+        swatch.classList.add("active");
+
+        selectedColour.textContent =
+          swatch.dataset.colour;
+
+      }
+    );
+
+  }
+);
+
+
+/* =====================================================
+   CUSTOM WHATSAPP FORM
+===================================================== */
+
+document
+  .getElementById("customForm")
+  .addEventListener(
+    "submit",
+    event=>{
+
+      event.preventDefault();
+
+
+      const name =
+        document.getElementById(
+          "customerName"
+        ).value;
+
+      const phone =
+        document.getElementById(
+          "customerPhone"
+        ).value;
+
+      const city =
+        document.getElementById(
+          "customerCity"
+        ).value;
+
+      const sofaType =
+        document.getElementById(
+          "sofaType"
+        ).value;
+
+      const size =
+        document.getElementById(
+          "sofaSize"
+        ).value;
+
+      const requirements =
+        document.getElementById(
+          "requirements"
+        ).value;
+
+
+      const message =
+
+`Hi DFH 👋
+
+I want a custom sofa enquiry.
+
+Name: ${name}
+Phone: ${phone}
+City: ${city || "Not specified"}
+
+Sofa Type: ${sofaType}
+
+Preferred Size:
+${size || "Not specified"}
+
+Colour:
+${selectedColour.textContent}
+
+Requirements:
+${requirements || "Please suggest options."}`;
+
+
+      window.open(
+
+        `https://wa.me/${WHATSAPP}?text=${
+          encodeURIComponent(message)
+        }`,
+
+        "_blank"
+
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const observer =
+  new IntersectionObserver(
+    entries=>{
+
+      entries.forEach(
+        entry=>{
+
+          if(entry.isIntersecting){
+
+            entry.target
+              .classList
+              .add("show");
+
+          }
+
+        }
+      );
+
+    },
+    {
+      threshold:.12
+    }
+  );
+
+
+document
+  .querySelectorAll(".reveal")
+  .forEach(
+    element=>{
+      observer.observe(element);
+    }
+  );
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+const backTop =
+  document.getElementById("backTop");
+
+
+window.addEventListener(
+  "scroll",
+  ()=>{
+
+    if(window.scrollY>600){
+
+      backTop.classList.add("show");
+
+    }else{
+
+      backTop.classList.remove("show");
+
+    }
+
+  }
+);
+
+
+backTop.onclick = () => {
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+};
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuButton =
+  document.getElementById("menuButton");
+
+const mainNav =
+  document.getElementById("mainNav");
+
+
+menuButton.onclick = () => {
+
+  const opened =
+    mainNav.dataset.open==="true";
+
+
+  if(opened){
+
+    mainNav.dataset.open="false";
+
+    mainNav.style.display="";
+
+  }else{
+
+    mainNav.dataset.open="true";
+
+    mainNav.style.display="flex";
+
+    mainNav.style.position="absolute";
+
+    mainNav.style.top="67px";
+
+    mainNav.style.left="0";
+
+    mainNav.style.right="0";
+
+    mainNav.style.padding="22px";
+
+    mainNav.style.background=
+      "rgba(8,8,8,.98)";
+
+    mainNav.style.flexDirection=
+      "column";
+
+    mainNav.style.borderBottom=
+      "1px solid rgba(213,166,66,.2)";
+
+  }
+
+};
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(event.key==="Escape"){
+
+      closeProduct();
+
+      searchModal.classList.remove(
+        "open"
+      );
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
