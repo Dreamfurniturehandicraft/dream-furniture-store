@@ -1,1052 +1,466 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dream Furniture Handicraft | Premium Sofas</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f7f5f0;
-    color:#171717;
-}
-
-/* HEADER */
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:#111;
-    padding:18px 7%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    box-shadow:0 3px 15px rgba(0,0,0,.25);
-}
-
-.logo{
-    color:#d4af37;
-    font-size:23px;
-    font-weight:bold;
-    letter-spacing:1px;
-}
-
-nav{
-    display:flex;
-    gap:28px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-size:15px;
-}
-
-nav a:hover{
-    color:#d4af37;
-}
-
-.cart-button{
-    color:#d4af37;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-/* HERO */
-.hero{
-    min-height:620px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-
-    background:
-    linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
-    url("https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1800&q=90")
-    center/cover;
-}
-
-.hero-content{
-    max-width:850px;
-    padding:30px;
-}
-
-.hero h1{
-    font-size:58px;
-    margin-bottom:18px;
-    letter-spacing:1px;
-}
-
-.hero h1 span{
-    color:#d4af37;
-}
-
-.hero p{
-    font-size:20px;
-    color:#eee;
-    margin-bottom:32px;
-}
-
-.btn{
-    display:inline-block;
-    border:none;
-    background:#d4af37;
-    color:#111;
-    padding:14px 30px;
-    border-radius:5px;
-    text-decoration:none;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#f0d36b;
-    transform:translateY(-2px);
-}
-
-/* SECTION */
-section{
-    padding:70px 7%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.section-title h2{
-    font-size:38px;
-    margin-bottom:10px;
-}
-
-.section-title p{
-    color:#777;
-}
-
-/* SEARCH */
-.search{
-    display:block;
-    width:100%;
-    max-width:520px;
-    margin:0 auto 40px;
-    padding:15px 18px;
-    border:1px solid #ddd;
-    border-radius:6px;
-    font-size:16px;
-    outline:none;
-}
-
-.search:focus{
-    border-color:#d4af37;
-}
-
-/* PRODUCTS */
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:28px;
-}
-
-.product{
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.product:hover{
-    transform:translateY(-6px);
-    box-shadow:0 10px 30px rgba(0,0,0,.14);
-}
-
-.product-image{
-    position:relative;
-}
-
-.product-image img{
-    width:100%;
-    height:270px;
-    object-fit:cover;
-    display:block;
-}
-
-.badge{
-    position:absolute;
-    top:15px;
-    left:15px;
-    background:#111;
-    color:#d4af37;
-    padding:7px 12px;
-    border-radius:4px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.product-info{
-    padding:22px;
-}
-
-.product-info h3{
-    font-size:21px;
-    margin-bottom:9px;
-}
-
-.product-info p{
-    color:#777;
-    line-height:1.5;
-    font-size:14px;
-}
-
-.price{
-    color:#a17c0b;
-    font-size:22px;
-    font-weight:bold;
-    margin:16px 0;
-}
-
-/* FEATURES */
-.features{
-    background:#111;
-    color:white;
-}
-
-.feature-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:30px;
-    text-align:center;
-}
-
-.feature{
-    padding:20px;
-}
-
-.feature-icon{
-    font-size:35px;
-    margin-bottom:12px;
-}
-
-.feature h3{
-    color:#d4af37;
-    margin-bottom:8px;
-}
-
-.feature p{
-    color:#ccc;
-    font-size:14px;
-}
-
-/* ABOUT */
-.about{
-    text-align:center;
-}
-
-.about-content{
-    max-width:800px;
-    margin:auto;
-}
-
-.about p{
-    color:#666;
-    line-height:1.8;
-    font-size:16px;
-}
-
-/* CONTACT */
-.contact{
-    background:#eeeae2;
-    text-align:center;
-}
-
-.contact p{
-    margin:10px;
-    color:#555;
-}
-
-/* FOOTER */
-footer{
-    background:#080808;
-    color:#aaa;
-    text-align:center;
-    padding:30px 15px;
-}
-
-footer strong{
-    color:#d4af37;
-}
-
-/* CART */
-.cart-box{
-    position:fixed;
-    right:-430px;
-    top:0;
-    width:390px;
-    max-width:100%;
-    height:100vh;
-    background:white;
-    z-index:2000;
-    padding:28px;
-    box-shadow:-8px 0 30px rgba(0,0,0,.25);
-    transition:.35s;
-    overflow-y:auto;
-}
-
-.cart-box.open{
-    right:0;
-}
-
-.cart-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-
-.cart-header h2{
-    font-size:25px;
-}
-
-.close{
-    font-size:30px;
-    cursor:pointer;
-}
-
-.cart-item{
-    border-bottom:1px solid #ddd;
-    padding:15px 0;
-}
-
-.cart-item strong{
-    display:block;
-    margin-bottom:7px;
-}
-
-.remove{
-    margin-top:8px;
-    border:none;
-    background:#eee;
-    padding:6px 10px;
-    cursor:pointer;
-}
-
-.total{
-    font-size:21px;
-    font-weight:bold;
-    margin:25px 0;
-}
-
-/* MOBILE */
-@media(max-width:700px){
-
-    header{
-        padding:15px 5%;
-    }
-
-    nav{
-        display:none;
-    }
-
-    .hero{
-        min-height:530px;
-    }
-
-    .hero h1{
-        font-size:39px;
-    }
-
-    .hero p{
-        font-size:17px;
-    }
-
-    section{
-        padding:55px 5%;
-    }
-
-    .section-title h2{
-        font-size:30px;
-    }
-
-    .cart-box{
-        width:100%;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Dream Furniture Handicraft | Premium Sofas
+    </title>
+
+    <meta name="description"
+          content="Dream Furniture Handicraft - Premium luxury sofas, custom furniture and modern sofa designs.">
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f5f0;
+            color: #171717;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+
+            background: rgba(10,10,10,0.95);
+            border-bottom: 1px solid #b88a25;
+        }
+
+        .navbar {
+            max-width: 1250px;
+            margin: auto;
+
+            height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+        .logo img {
+            width: 220px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e4b73d;
+        }
+
+        .whatsapp-btn {
+            background: #e4b73d;
+            color: #111;
+
+            padding: 11px 17px;
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(228,183,61,0.3);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 750px;
+            padding-top: 78px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 50%,
+                    rgba(210,160,45,0.18),
+                    transparent 35%
+                ),
+                #090909;
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 1250px;
+            width: 92%;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content small {
+            color: #e4b73d;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(45px, 6vw, 78px);
+            line-height: 1;
+
+            margin: 20px 0;
+        }
+
+        .hero-content h1 span {
+            color: #e4b73d;
+        }
+
+        .hero-content p {
+            color: #c9c9c9;
+            line-height: 1.8;
+            max-width: 570px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 22px;
+            border-radius: 9px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: #e4b73d;
+            color: #111;
+        }
+
+        .btn-outline {
+            border: 1px solid #e4b73d;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .hero-sofa {
+            height: 380px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #eee2cd,
+                    #8d795d
+                );
+
+            box-shadow:
+                0 40px 80px rgba(0,0,0,0.5);
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products {
+            max-width: 1250px;
+            width: 92%;
+            margin: auto;
+
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: #a87918;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+            font-size: 45px;
+            margin-top: 10px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.08);
+
+            transition: 0.4s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow:
+                0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 240px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e9dfcf,
+                    #a89579
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image::after {
+            content: "SOFA";
+            color: rgba(0,0,0,0.15);
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-family: Georgia, serif;
+            font-size: 21px;
+        }
+
+        .product-info p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        .price {
+            color: #9a650d;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .order-btn {
+            width: 100%;
+            margin-top: 14px;
+
+            padding: 12px;
+
+            border: 0;
+            border-radius: 8px;
+
+            background: #e4b73d;
+            color: #111;
+
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .order-btn:hover {
+            background: #c99520;
+        }
+
+        /* =========================
+           CATALOGUE
+        ========================= */
+
+        .catalogue {
+            background: #0b0b0b;
+            color: white;
+
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .catalogue h2 {
+            font-family: Georgia, serif;
+            font-size: 42px;
+        }
+
+        .catalogue p {
+            color: #aaa;
+            margin: 15px auto 25px;
+            max-width: 650px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            padding: 90px 20px;
+            background: #f5f1e8;
+        }
+
+        .contact-box {
+            max-width: 900px;
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-family: Georgia, serif;
+            font-size: 45px;
+        }
+
+        .contact-box p {
+            margin: 15px 0 25px;
+            color: #666;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #070707;
+            color: #aaa;
+
+            padding: 30px;
+            text-align: center;
+        }
+
+        footer strong {
+            color: #e4b73d;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width:900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-sofa {
+                display: none;
+            }
+
+            .product-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:600px) {
+
+            .logo img {
+                width: 170px;
+            }
+
+            .hero {
+                min-height: 680px;
+            }
+
+            .hero-content h1 {
+                font-size: 45px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 35px;
+            }
+        }
+
+    </style>
 </head>
-
 
 <body>
 
-<!-- HEADER -->
-
-<header>
-
-    <div class="logo">
-        DREAM FURNITURE
-    </div>
-
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#sofas">Sofas</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="cart-button" onclick="openCart()">
-        🛒 Cart (<span id="cartCount">0</span>)
-    </div>
-
-</header>
-
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <h1>
-            Luxury <span>Sofas</span>
-            For Your Dream Home
-        </h1>
-
-        <p>
-            Discover stylish, comfortable and beautifully
-            handcrafted sofas by Dream Furniture Handicraft.
-        </p>
-
-        <a href="#sofas" class="btn">
-            EXPLORE SOFAS
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- SOFAS -->
-
-<section id="sofas">
-
-    <div class="section-title">
-
-        <h2>Our Sofa Collection</h2>
-
-        <p>
-            Premium designs made for modern living rooms.
-        </p>
-
-    </div>
-
-
-    <input
-        class="search"
-        id="search"
-        type="text"
-        placeholder="Search sofas..."
-        onkeyup="searchProducts()"
-    >
-
-
-    <div class="products" id="products">
-
-
-        <!-- SOFA 1 -->
-
-        <div class="product" data-name="Luxury 3 Seater Sofa">
-
-            <div class="product-image">
-
-                <span class="badge">
-                    BEST SELLER
-                </span>
-
-                <img
-src="https://images.unsplash.com/..."
-alt="Luxury 3 Seater Sofa">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Luxury 3 Seater Sofa
-                </h3>
-
-                <p>
-                    Elegant and comfortable sofa for modern living rooms.
-                </p>
-
-                <div class="price">
-                    ₹12,999
-                </div>
-
-                <button
-                class="btn"
-                onclick="addToCart('Luxury 3 Seater Sofa',12999)">
-                    Add to Cart
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- SOFA 2 -->
-
-        <div class="product" data-name="Premium Velvet Sofa">
-
-            <div class="product-image">
-
-                <span class="badge">
-                    PREMIUM
-                </span>
-
-                <img
-                src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=900&q=90"
-                alt="Premium Velvet Sofa">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Premium Velvet Sofa
-                </h3>
-
-                <p>
-                    Soft velvet finish with a luxurious modern design.
-                </p>
-
-                <div class="price">
-                    ₹15,499
-                </div>
-
-                <button
-                class="btn"
-                onclick="addToCart('Premium Velvet Sofa',15499)">
-                    Add to Cart
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- SOFA 3 -->
-
-        <div class="product" data-name="Modern L Shape Sofa">
-
-            <div class="product-image">
-
-                <span class="badge">
-                    NEW
-                </span>
-
-                <img
-                src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=900&q=90"
-                alt="Modern L Shape Sofa">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Modern L-Shape Sofa
-                </h3>
-
-                <p>
-                    Spacious L-shaped sofa designed for family comfort.
-                </p>
-
-                <div class="price">
-                    ₹18,999
-                </div>
-
-                <button
-                class="btn"
-                onclick="addToCart('Modern L Shape Sofa',18999)">
-                    Add to Cart
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- SOFA 4 -->
-
-        <div class="product" data-name="Royal Sofa Set">
-
-            <div class="product-image">
-
-                <span class="badge">
-                    ROYAL
-                </span>
-
-                <img
-                src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=90"
-                alt="Royal Sofa Set">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Royal Sofa Set
-                </h3>
-
-                <p>
-                    Classic premium sofa set with elegant styling.
-                </p>
-
-                <div class="price">
-                    ₹21,999
-                </div>
-
-                <button
-                class="btn"
-                onclick="addToCart('Royal Sofa Set',21999)">
-                    Add to Cart
-                </button>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- FEATURES -->
-
-<section class="features">
-
-    <div class="section-title">
-
-        <h2>
-            Why Choose Us?
-        </h2>
-
-    </div>
-
-
-    <div class="feature-grid">
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                🛋️
-            </div>
-
-            <h3>
-                Premium Quality
-            </h3>
-
-            <p>
-                Carefully designed sofas for long-lasting comfort.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                ✨
-            </div>
-
-            <h3>
-                Modern Designs
-            </h3>
-
-            <p>
-                Stylish designs created for modern homes.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                🚚
-            </div>
-
-            <h3>
-                Safe Delivery
-            </h3>
-
-            <p>
-                We carefully prepare your furniture for delivery.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                ❤️
-            </div>
-
-            <h3>
-                Customer First
-            </h3>
-
-            <p>
-                Your satisfaction is our priority.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section class="about" id="about">
-
-    <div class="section-title">
-
-        <h2>
-            About Dream Furniture Handicraft
-        </h2>
-
-    </div>
-
-
-    <div class="about-content">
-
-        <p>
-            Dream Furniture Handicraft is dedicated to bringing
-            beautiful and comfortable sofas into your home.
-            Our collection combines modern design, comfort
-            and a premium look to create furniture you will love.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-    <div class="section-title">
-
-        <h2>
-            Contact Us
-        </h2>
-
-        <p>
-            Have a question about a sofa? Contact us.
-        </p>
-
-    </div>
-
-
-    <p>
-        📱 WhatsApp: +91 XXXXX XXXXX
-    </p>
-
-    <p>
-        📧 Email: your@email.com
-    </p>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    © 2026
-    <strong>Dream Furniture Handicraft</strong>
-    — All Rights Reserved.
-
-</footer>
-
-
-<!-- CART -->
-
-<div class="cart-box" id="cartBox">
-
-    <div class="cart-header">
-
-        <h2>
-            Your Cart
-        </h2>
-
-        <span
-        class="close"
-        onclick="closeCart()">
-            ×
-        </span>
-
-    </div>
-
-
-    <div id="cartItems">
-
-        <p>
-            Your cart is empty.
-        </p>
-
-    </div>
-
-
-    <div class="total">
-
-        Total:
-        ₹<span id="cartTotal">0</span>
-
-    </div>
-
-
-    <button
-    class="btn"
-    onclick="whatsappOrder()">
-
-        Order on WhatsApp
-
-    </button>
-
-</div>
-
-
-<script>
-
-let cart = [];
-
-
-/* ADD TO CART */
-
-function addToCart(name, price){
-
-    cart.push({
-        name:name,
-        price:price
-    });
-
-    updateCart();
-
-    openCart();
-}
-
-
-/* UPDATE CART */
-
-function updateCart(){
-
-    document.getElementById("cartCount").innerText =
-        cart.length;
-
-    const items =
-        document.getElementById("cartItems");
-
-    if(cart.length === 0){
-
-        items.innerHTML =
-            "<p>Your cart is empty.</p>";
-
-        document.getElementById("cartTotal").innerText =
-            "0";
-
-        return;
-    }
-
-
-    let total = 0;
-
-    items.innerHTML = "";
-
-
-    cart.forEach((item,index)=>{
-
-        total += item.price;
-
-        items.innerHTML += `
-
-            <div class="cart-item">
-
-                <strong>
-                    ${item.name}
-                </strong>
-
-                ₹${item.price}
-
-                <br>
-
-                <button
-                class="remove"
-                onclick="removeItem(${index})">
-
-                    Remove
-
-                </button>
-
-            </div>
-
-        `;
-
-    });
-
-
-    document.getElementById("cartTotal").innerText =
-        total;
-
-}
-
-
-/* REMOVE */
-
-function removeItem(index){
-
-    cart.splice(index,1);
-
-    updateCart();
-
-}
-
-
-/* OPEN CART */
-
-function openCart(){
-
-    document
-    .getElementById("cartBox")
-    .classList.add("open");
-
-}
-
-
-/* CLOSE CART */
-
-function closeCart(){
-
-    document
-    .getElementById("cartBox")
-    .classList.remove("open");
-
-}
-
-
-/* SEARCH */
-
-function searchProducts(){
-
-    const search =
-        document
-        .getElementById("search")
-        .value
-        .toLowerCase();
-
-
-    const products =
-        document.querySelectorAll(".product");
-
-
-    products.forEach(product=>{
-
-        const name =
-            product
-            .dataset
-            .name
-            .toLowerCase();
-
-
-        if(name.includes(search)){
-
-            product.style.display =
-                "block";
-
-        }else{
-
-            product.style.display =
-                "none";
-
-        }
-
-    });
-
-}
-
-
-/* WHATSAPP ORDER */
-
-function whatsappOrder(){
-
-    if(cart.length === 0){
-
-        alert("Your cart is empty!");
-
-        return;
-
-    }
-
-
-    let message =
-        "Hello Dream Furniture Handicraft,%0A%0AI want to order:%0A";
-
-
-    let total = 0;
-
-
-    cart.forEach(item=>{
-
-        message +=
-            "- " +
-            item.name +
-            " - ₹" +
-            item.price +
-            "%0A";
-
-        total += item.price;
-
-    });
-
-
-    message +=
-        "%0ATotal: ₹" +
-        total +
-        "%0A%0APlease confirm my order.";
-
-
-    /*
-      IMPORTANT:
-      Replace 919999999999
-      with your real WhatsApp number.
-
-      Example:
-      919876543210
-    */
-
-
-    window.open(
-        "https://wa.me/919999999999?text=" +
-        message,
-        "_blank"
-    );
-
-}
-
-</script>
+<!-- WEBSITE CONTENT HERE -->
 
 </body>
 </html>
